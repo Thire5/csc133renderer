@@ -7,10 +7,20 @@ import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 public class slWindowManager {
-    public static void main(String[] args) {
-        int WIN_WIDTH = 1800, WIN_HEIGHT = 1200;
-        new slWindowManager().render(WIN_WIDTH, WIN_HEIGHT);
-    } // public static void main(String[] args)
+    private static long my_win;
+    private static void slWindowManagerCreate(int win_width, int win_height) {
+        if(my_win == 0) {
+            my_win = glfwCreateWindow(win_width, win_height, "csc 133", NULL, NULL)
+        }
+    }
+    public static slWindowManager get() {
+        slWindowManagerCreate();
+        slWindowManager window = new slWindowManager();
+        return window;
+    }
+    public void makeContextCurrent() {
+        glfwMakeContextCurrent(my_win);
+    }
 
     void render(int win_width, int win_height) {
             if (!glfwInit()) {
@@ -36,4 +46,7 @@ public class slWindowManager {
             glfwDestroyWindow(my_win);
     } // void render()
 
+    public void initGLFWWindow(int winWidth, int winHeight, String title) {
+
+    }
 }  // public class Main
