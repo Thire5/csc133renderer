@@ -3,11 +3,12 @@ package pkgSlRenderer;
 import org.lwjgl.opengl.GL;
 import pkgSlUtils.slWindowManager;
 
+import java.util.Random;
+
 import static java.lang.Math.PI;
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.system.MemoryUtil.NULL;
-
 public class slRenderEngine {
     private final int NUM_RGBA = 4;
     private final int NUM_3D_COORDS = 3;
@@ -15,6 +16,10 @@ public class slRenderEngine {
     private final float C_RADIUS = 0.05f;
     private final int MAX_CIRCLES = 100;
     private final int UPDATE_INTERVAL = 30;
+    private float[][] RAND_COLORS;
+    Random myRand = new Random();
+    private slWindowManager my_wm = new slWindowManager();
+    private float[][] rand_coords;
 
     public void render() {
         updateRandVertices();
@@ -38,9 +43,12 @@ public class slRenderEngine {
         my_wm.destroyGlfwWindow();
     } // public void render(...)
 
-
-    } // void render()
-
     public void initOpenGL(slWindowManager window) {
+        my_wm = window;
+        my_wm.updateContextToThis();
+
+        GL.createCapabilities();
+        float CC_RED = 0.0f, CC_GREEN = 0.0f, CC_BLUE = 1.0f, CC_ALPHA = 1.0f;
+        glClearColor(CC_RED, CC_GREEN, CC_BLUE, CC_ALPHA);
     }
 }
