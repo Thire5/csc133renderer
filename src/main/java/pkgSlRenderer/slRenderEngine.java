@@ -16,12 +16,27 @@ public class slRenderEngine {
     private final float C_RADIUS = 0.05f;
     private final int MAX_CIRCLES = 100;
     private final int UPDATE_INTERVAL = 30;
-    private float[][] RAND_COLORS;
+    private float[] rand_colors;
     Random myRand = new Random();
     private slWindowManager my_wm = new slWindowManager();
     private float[][] rand_coords;
+    private final float opacity = 1.0f;
+    private final float z = 0.0f;
     private void updateRandVertices() {
-
+        float coord_1 = (myRand.nextFloat() * 2) - 1;
+        rand_coords[0][0] = coord_1;
+        float coord_2 = (myRand.nextFloat() * 2) - 1;
+        rand_coords[0][1] = coord_2;
+        rand_coords[0][2] = z;
+    }
+    private void updateRandColors() {
+        float red = myRand.nextFloat();
+        float green = myRand.nextFloat();
+        float blue = myRand.nextFloat();
+        rand_colors[0] = red;
+        rand_colors[1] = green;
+        rand_colors[2] = blue;
+        rand_colors[3] = opacity;
     }
     private void generateCircleSegmentVertices(float[] a, float b, float[] c, float d, float e, int f) {
 
@@ -36,12 +51,11 @@ public class slRenderEngine {
             glBegin(GL_TRIANGLES);
 // Each triangle will require color + 3 vertices as below.
 // For each circle you need 40 of these for the assignment.
-            glColor4f(..., ..., ..., ...);
+            updateRandColors();
+            glColor4f(rand_colors[0], rand_colors[1], rand_colors[2], rand_colors[3]);
             glVertex3f(x0, y0, z0);
             glVertex3f(x1, y1, z1);
             glVertex3f(x2, y2, z2);
- ...
-....
             glEnd();
             my_wm.swapBuffers();
         } // while (!my_wm.isGlfwWindowClosed())
