@@ -8,9 +8,9 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 public class slWindowManager {
     private static long my_win;
-    private static void slWindowManagerCreate(int win_width, int win_height) {
+    public static void initGLFWWindow(int win_width, int win_height, String title) {
         if(my_win == 0) {
-            my_win = glfwCreateWindow(win_width, win_height, "csc 133", NULL, NULL)
+            my_win = glfwCreateWindow(win_width, win_height, title, NULL, NULL);
         }
     }
     public static slWindowManager get() {
@@ -19,10 +19,25 @@ public class slWindowManager {
     public void makeContextCurrent() {
         glfwMakeContextCurrent(my_win);
     }
+    public void intGL(int win_width, int win_height, String title) {
+        if (!glfwInit()) {
+            throw new IllegalStateException("Unable to initialize GLFW");
+        }
+        if (my_win == NULL) {
+            throw new RuntimeException("Failed to create the GLFW window");
+        }  //  if (window == NULL)
 
+        GL.createCapabilities();
+        float CC_RED = 0.0f, CC_GREEN = 0.0f, CC_BLUE = 1.0f, CC_ALPHA = 1.0f;
+        glClearColor(CC_RED, CC_GREEN, CC_BLUE, CC_ALPHA);
 
+        while (!glfwWindowShouldClose(my_win)) {
+            glfwPollEvents();
+            glClear(GL_COLOR_BUFFER_BIT);
 
-    public void initGLFWWindow(int winWidth, int winHeight, String title) {
+            glfwSwapBuffers(my_win);
+        }
 
+        glfwDestroyWindow(my_win);
     }
 }  // public class Main

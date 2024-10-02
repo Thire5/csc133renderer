@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e201c54d-30ed-489e-9aec-7cc267dcd7de" name="Changes" comment="added makeContextCurrent, new variables">
+    <list default="true" id="e201c54d-30ed-489e-9aec-7cc267dcd7de" name="Changes" comment="moved and reformatted render method">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/slRenderEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/slRenderEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pkgSlUtils/slWindowManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgSlUtils/slWindowManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,12 +35,12 @@
     &quot;assignee&quot;: &quot;Thire5&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Thire5/csc133renderer.git",
-    "accountId": "ca8f8ebf-40e5-40f8-b5ad-8553e134a6cb"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Thire5/csc133renderer.git&quot;,
+    &quot;accountId&quot;: &quot;ca8f8ebf-40e5-40f8-b5ad-8553e134a6cb&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -90,7 +92,8 @@
       <workItem from="1727728363506" duration="2829000" />
       <workItem from="1727813111066" duration="106000" />
       <workItem from="1727813300221" duration="988000" />
-      <workItem from="1727814331524" duration="3684000" />
+      <workItem from="1727814331524" duration="4359000" />
+      <workItem from="1727838740824" duration="998000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit pt 2">
       <option name="closed" value="true" />
@@ -124,7 +127,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727819117938</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="moved and reformatted render method">
+      <option name="closed" value="true" />
+      <created>1727819263646</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1727819263646</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -152,6 +163,7 @@
     <MESSAGE value="initial commit" />
     <MESSAGE value="implementing get method" />
     <MESSAGE value="added makeContextCurrent, new variables" />
-    <option name="LAST_COMMIT_MESSAGE" value="added makeContextCurrent, new variables" />
+    <MESSAGE value="moved and reformatted render method" />
+    <option name="LAST_COMMIT_MESSAGE" value="moved and reformatted render method" />
   </component>
 </project>
