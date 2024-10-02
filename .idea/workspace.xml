@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e201c54d-30ed-489e-9aec-7cc267dcd7de" name="Changes" comment="added new render engine methods" />
+    <list default="true" id="e201c54d-30ed-489e-9aec-7cc267dcd7de" name="Changes" comment="filled out randColors and randVertices methods">
+      <change beforePath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/slRenderEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/slRenderEngine.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -113,6 +115,7 @@
       <workItem from="1727838740824" duration="1142000" />
       <workItem from="1727850926637" duration="2150000" />
       <workItem from="1727900510061" duration="1046000" />
+      <workItem from="1727908721211" duration="1709000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit pt 2">
       <option name="closed" value="true" />
@@ -186,7 +189,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727901553611</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="filled out randColors and randVertices methods">
+      <option name="closed" value="true" />
+      <created>1727909917848</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1727909917848</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -219,6 +230,7 @@
     <MESSAGE value="added all constants and variables" />
     <MESSAGE value="made at least methods obey SRP" />
     <MESSAGE value="added new render engine methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="added new render engine methods" />
+    <MESSAGE value="filled out randColors and randVertices methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="filled out randColors and randVertices methods" />
   </component>
 </project>

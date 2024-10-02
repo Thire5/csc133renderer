@@ -46,18 +46,21 @@ public class slRenderEngine {
 
         final float begin_angle = 0.0f, end_angle = (float) (2.0f * PI);
         while (!my_wm.isGlfwWindowClosed()) {
+            updateRandVertices();
             glfwPollEvents();
             glClear(GL_COLOR_BUFFER_BIT);
             glBegin(GL_TRIANGLES);
 // Each triangle will require color + 3 vertices as below.
 // For each circle you need 40 of these for the assignment.
-            updateRandColors();
-            glColor4f(rand_colors[0], rand_colors[1], rand_colors[2], rand_colors[3]);
-            glVertex3f(x0, y0, z0);
-            glVertex3f(x1, y1, z1);
-            glVertex3f(x2, y2, z2);
-            glEnd();
-            my_wm.swapBuffers();
+            for (int triangles = 0; triangles < TRIANGLES_PER_CIRCLE; triangles++) {
+                updateRandColors();
+                glColor4f(rand_colors[0], rand_colors[1], rand_colors[2], rand_colors[3]);
+                glVertex3f(rand_coords[0][0], rand_coords[0][1], rand_coords[0][2]);
+                glVertex3f(rand_coords[1][0], rand_coords[1][1], rand_coords[1][2]);
+                glVertex3f(rand_coords[2][0], rand_coords[2][1], rand_coords[2][2]);
+                glEnd();
+                my_wm.swapBuffers();
+            }
         } // while (!my_wm.isGlfwWindowClosed())
         my_wm.destroyGlfwWindow();
     } // public void render(...)
