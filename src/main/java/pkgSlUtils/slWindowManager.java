@@ -52,13 +52,13 @@ public class slWindowManager {
         float CC_RED = 0.0f, CC_GREEN = 0.0f, CC_BLUE = 1.0f, CC_ALPHA = 1.0f;
         glClearColor(CC_RED, CC_GREEN, CC_BLUE, CC_ALPHA);
 
-        while (!glfwWindowShouldClose(my_win)) {
+        while (!isGlfwWindowClosed()) {
             glfwPollEvents();
             glClear(GL_COLOR_BUFFER_BIT);
 
-            glfwSwapBuffers(my_win);
+            swapBuffers();
         }
 
-        glfwDestroyWindow(my_win);
+        destroyGlfwWindow();
     }
 }  // public class Main
