@@ -20,7 +20,12 @@ public class slRenderEngine {
     Random myRand = new Random();
     private slWindowManager my_wm = new slWindowManager();
     private float[][] rand_coords;
+    private void updateRandVertices() {
 
+    }
+    private void generateCircleSegmentVertices(float[] a, float b, float[] c, float d, float e, int f) {
+
+    }
     public void render() {
         updateRandVertices();
 

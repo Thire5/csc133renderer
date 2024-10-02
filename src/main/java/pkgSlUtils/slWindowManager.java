@@ -16,6 +16,7 @@ public class slWindowManager {
     }
     public int[] getCurrentWindowSize() {
         int[] size = new int[2];
+        return size;
     }
     public static slWindowManager get() {
         return window;
