@@ -8,13 +8,16 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 public class slWindowManager {
     private static long my_win = NULL;
-    public static slWindowManager window = new slWindowManager();
+    public static slWindowManager window;
     private static void slWindowCreate(int win_width, int win_height, String title) {
         if(my_win == NULL) {
             my_win = glfwCreateWindow(win_width, win_height, title, NULL, NULL);
         }
     }
     public static slWindowManager get() {
+        if(window == null) {
+            window = new slWindowManager();
+        }
         return window;
     }
     public void destroyGlfwWindow() {
@@ -38,22 +41,12 @@ public class slWindowManager {
             throw new RuntimeException("Failed to create the GLFW window");
         }  //  if (window == NULL)
         updateContextToThis();
+        GL.createCapabilities();
         glfwDefaultWindowHints();
         glfwWindowHint(GLFW_VISIBLE, GLFW_TRUE);
         glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
         glfwWindowHint(GLFW_MAXIMIZED, GLFW_FALSE);
-        slWindowCreate(win_width, win_height, title);
-        GL.createCapabilities();
         float CC_RED = 0.0f, CC_GREEN = 0.0f, CC_BLUE = 1.0f, CC_ALPHA = 1.0f;
         glClearColor(CC_RED, CC_GREEN, CC_BLUE, CC_ALPHA);
-
-        while (!isGlfwWindowClosed()) {
-            glfwPollEvents();
-            glClear(GL_COLOR_BUFFER_BIT);
-
-            swapBuffers();
-        }
-
-        destroyGlfwWindow();
     }
 }  // public class Main
