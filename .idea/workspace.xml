@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e201c54d-30ed-489e-9aec-7cc267dcd7de" name="Changes" comment="bug fixes">
+    <list default="true" id="e201c54d-30ed-489e-9aec-7cc267dcd7de" name="Changes" comment="added sleep interval">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pkgDriver/slSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgDriver/slSpot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/slRenderEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/slRenderEngine.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -120,7 +119,7 @@
       <workItem from="1727908721211" duration="1754000" />
       <workItem from="1727925136448" duration="3998000" />
       <workItem from="1727985045774" duration="586000" />
-      <workItem from="1727988868791" duration="833000" />
+      <workItem from="1727988868791" duration="2186000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit pt 2">
       <option name="closed" value="true" />
@@ -226,7 +225,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727985584831</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="added sleep interval">
+      <option name="closed" value="true" />
+      <created>1727989728553</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1727989728553</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -263,6 +270,7 @@
     <MESSAGE value="render method now properly calls random methods" />
     <MESSAGE value="render method advancements" />
     <MESSAGE value="bug fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug fixes" />
+    <MESSAGE value="added sleep interval" />
+    <option name="LAST_COMMIT_MESSAGE" value="added sleep interval" />
   </component>
 </project>
