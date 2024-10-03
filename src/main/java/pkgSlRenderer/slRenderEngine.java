@@ -26,9 +26,9 @@ public class slRenderEngine {
     private final float z = 0.0f;
     private float thetaInterval = (float)(Math.PI)/20;
     private void updateRandVertices() {
-        float coord_1 = (myRand.nextFloat() * 2) - 1;
+        float coord_1 = (float) ((myRand.nextFloat() * 1.9) - 1);
         rand_coords[0] = coord_1;
-        float coord_2 = (myRand.nextFloat() * 2) - 1;
+        float coord_2 = (float) ((myRand.nextFloat() * 1.9) - 1);
         rand_coords[1] = coord_2;
         rand_coords[2] = z;
     }
@@ -71,8 +71,15 @@ public class slRenderEngine {
                     glVertex3f(rand_coords[0], rand_coords[1], rand_coords[2]);
                     glVertex3f(vertex_one[0], vertex_one[1], vertex_one[2]);
                     glVertex3f(vertex_two[0], vertex_two[1], vertex_two[2]);
-                    glEnd();
-                    my_wm.swapBuffers();
+                }
+            }
+            glEnd();
+            my_wm.swapBuffers();
+            if(UPDATE_INTERVAL != 0) {
+                try {
+                    Thread.sleep(UPDATE_INTERVAL);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
                 }
             }
         } // while (!my_wm.isGlfwWindowClosed())
@@ -83,8 +90,8 @@ public class slRenderEngine {
         my_wm = window;
         my_wm.updateContextToThis();
 
-        GL.createCapabilities();
+        /*GL.createCapabilities();
         float CC_RED = 0.0f, CC_GREEN = 0.0f, CC_BLUE = 1.0f, CC_ALPHA = 1.0f;
-        glClearColor(CC_RED, CC_GREEN, CC_BLUE, CC_ALPHA);
+        glClearColor(CC_RED, CC_GREEN, CC_BLUE, CC_ALPHA);*/
     }
 }
