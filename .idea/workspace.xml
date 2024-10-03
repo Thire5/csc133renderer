@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e201c54d-30ed-489e-9aec-7cc267dcd7de" name="Changes" comment="render method now properly calls random methods">
+    <list default="true" id="e201c54d-30ed-489e-9aec-7cc267dcd7de" name="Changes" comment="render method advancements">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/slRenderEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/slRenderEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pkgSlUtils/slWindowManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgSlUtils/slWindowManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -118,7 +117,8 @@
       <workItem from="1727850926637" duration="2150000" />
       <workItem from="1727900510061" duration="1046000" />
       <workItem from="1727908721211" duration="1754000" />
-      <workItem from="1727925136448" duration="3643000" />
+      <workItem from="1727925136448" duration="3998000" />
+      <workItem from="1727985045774" duration="366000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit pt 2">
       <option name="closed" value="true" />
@@ -208,7 +208,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727910478036</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="render method advancements">
+      <option name="closed" value="true" />
+      <created>1727935456235</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1727935456235</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -243,6 +251,7 @@
     <MESSAGE value="added new render engine methods" />
     <MESSAGE value="filled out randColors and randVertices methods" />
     <MESSAGE value="render method now properly calls random methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="render method now properly calls random methods" />
+    <MESSAGE value="render method advancements" />
+    <option name="LAST_COMMIT_MESSAGE" value="render method advancements" />
   </component>
 </project>

@@ -7,10 +7,10 @@ import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 public class slWindowManager {
-    private static long my_win;
+    private static long my_win = NULL;
     public static slWindowManager window = new slWindowManager();
     private static void slWindowCreate(int win_width, int win_height, String title) {
-        if(my_win == 0) {
+        if(my_win == NULL) {
             my_win = glfwCreateWindow(win_width, win_height, title, NULL, NULL);
         }
     }
@@ -33,9 +33,11 @@ public class slWindowManager {
         if (!glfwInit()) {
             throw new IllegalStateException("Unable to initialize GLFW");
         }
+        slWindowCreate(win_width, win_height, title);
         if (my_win == NULL) {
             throw new RuntimeException("Failed to create the GLFW window");
         }  //  if (window == NULL)
+        updateContextToThis();
         glfwDefaultWindowHints();
         glfwWindowHint(GLFW_VISIBLE, GLFW_TRUE);
         glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
