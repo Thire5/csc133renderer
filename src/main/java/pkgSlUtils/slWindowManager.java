@@ -14,10 +14,6 @@ public class slWindowManager {
             my_win = glfwCreateWindow(win_width, win_height, title, NULL, NULL);
         }
     }
-    public int[] getCurrentWindowSize() {
-        int[] size = new int[2];
-        return size;
-    }
     public static slWindowManager get() {
         return window;
     }
@@ -32,10 +28,6 @@ public class slWindowManager {
     }
     public void updateContextToThis() {
         glfwMakeContextCurrent(my_win);
-    }
-    public int[] getWindowSize() {
-        int[] size = new int[2];
-        return size;
     }
     public void initGLFWWindow(int win_width, int win_height, String title) {
         if (!glfwInit()) {

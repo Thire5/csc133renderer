@@ -19,15 +19,18 @@ public class slRenderEngine {
     private float[] rand_colors;
     Random myRand = new Random();
     private slWindowManager my_wm = new slWindowManager();
-    private float[][] rand_coords;
+    private float[] rand_coords;
+    private float[] vertex_one;
+    private float[] vertex_two;
     private final float opacity = 1.0f;
     private final float z = 0.0f;
+    private float thetaInterval = (float)(Math.PI)/20;
     private void updateRandVertices() {
         float coord_1 = (myRand.nextFloat() * 2) - 1;
-        rand_coords[0][0] = coord_1;
+        rand_coords[0] = coord_1;
         float coord_2 = (myRand.nextFloat() * 2) - 1;
-        rand_coords[0][1] = coord_2;
-        rand_coords[0][2] = z;
+        rand_coords[1] = coord_2;
+        rand_coords[2] = z;
     }
     private void updateRandColors() {
         float red = myRand.nextFloat();
@@ -38,28 +41,39 @@ public class slRenderEngine {
         rand_colors[2] = blue;
         rand_colors[3] = opacity;
     }
-    private void generateCircleSegmentVertices(float[] a, float b, float[] c, float d, float e, int f) {
-
+    private void generateCircleSegmentVertices(float x, float y, float theta) {
+        vertex_one[0] = (float) (rand_coords[0] + (C_RADIUS * Math.cos(theta)));
+        vertex_one[1] = (float) (rand_coords[1] + (C_RADIUS * Math.sin(theta)));
+        vertex_one[2] = z;
+        vertex_two[0] = x;
+        vertex_two[1] = y;
+        vertex_two[2] = z;
     }
     public void render() {
         updateRandVertices();
 
         final float begin_angle = 0.0f, end_angle = (float) (2.0f * PI);
         while (!my_wm.isGlfwWindowClosed()) {
-            updateRandVertices();
-            glfwPollEvents();
-            glClear(GL_COLOR_BUFFER_BIT);
-            glBegin(GL_TRIANGLES);
+            for(int circles = 0; circles < MAX_CIRCLES; circles++) {
+                float theta = 0.0f;
+                updateRandColors();
+                updateRandVertices();
+                generateCircleSegmentVertices(0.0f, 0.0f, begin_angle);
+                theta += thetaInterval;
+                glfwPollEvents();
+                glClear(GL_COLOR_BUFFER_BIT);
+                glBegin(GL_TRIANGLES);
 // Each triangle will require color + 3 vertices as below.
 // For each circle you need 40 of these for the assignment.
-            for (int triangles = 0; triangles < TRIANGLES_PER_CIRCLE; triangles++) {
-                updateRandColors();
-                glColor4f(rand_colors[0], rand_colors[1], rand_colors[2], rand_colors[3]);
-                glVertex3f(rand_coords[0][0], rand_coords[0][1], rand_coords[0][2]);
-                glVertex3f(rand_coords[1][0], rand_coords[1][1], rand_coords[1][2]);
-                glVertex3f(rand_coords[2][0], rand_coords[2][1], rand_coords[2][2]);
-                glEnd();
-                my_wm.swapBuffers();
+                for (int triangles = 0; triangles < TRIANGLES_PER_CIRCLE; triangles++) {
+                    generateCircleSegmentVertices(vertex_one[0], vertex_one[1], theta);
+                    glColor4f(rand_colors[0], rand_colors[1], rand_colors[2], rand_colors[3]);
+                    glVertex3f(rand_coords[0], rand_coords[1], rand_coords[2]);
+                    glVertex3f(vertex_one[0], vertex_one[1], vertex_one[2]);
+                    glVertex3f(vertex_two[0], vertex_two[1], vertex_two[2]);
+                    glEnd();
+                    my_wm.swapBuffers();
+                }
             }
         } // while (!my_wm.isGlfwWindowClosed())
         my_wm.destroyGlfwWindow();
