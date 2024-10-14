@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e201c54d-30ed-489e-9aec-7cc267dcd7de" name="Changes" comment="code cleanup">
-      <change afterPath="$PROJECT_DIR$/src/main/java/pkgSlPolygonRenderer/slPolygonRenderer.java" afterDir="false" />
+    <list default="true" id="e201c54d-30ed-489e-9aec-7cc267dcd7de" name="Changes" comment="added new class, new methods">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -122,7 +121,8 @@
       <workItem from="1727985045774" duration="586000" />
       <workItem from="1727988868791" duration="7673000" />
       <workItem from="1727997889507" duration="27000" />
-      <workItem from="1728875971295" duration="1443000" />
+      <workItem from="1728875971295" duration="1571000" />
+      <workItem from="1728877565034" duration="17000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit pt 2">
       <option name="closed" value="true" />
@@ -260,7 +260,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727997747473</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="added new class, new methods">
+      <option name="closed" value="true" />
+      <created>1728877540335</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1728877540335</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -300,6 +308,7 @@
     <MESSAGE value="bug fixes" />
     <MESSAGE value="bug fixes, functional" />
     <MESSAGE value="code cleanup" />
-    <option name="LAST_COMMIT_MESSAGE" value="code cleanup" />
+    <MESSAGE value="added new class, new methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="added new class, new methods" />
   </component>
 </project>
