@@ -24,7 +24,7 @@ public class slPolygonRenderer extends slRenderEngine {
     private final float windowRange = 2.0f;
     private float[] center = new float[coordsPerVertex];
     private final float opacity = 1.0f;
-    private float radius;
+    private float radius = .05f;
     private float[] vertexOne = new float[coordsPerVertex];
     private float[] vertexTwo = new float[coordsPerVertex];
     Random myRand = new Random();
@@ -49,7 +49,6 @@ public class slPolygonRenderer extends slRenderEngine {
             }
         }
     }
-
     private void generateShapes(int faces) {
         float theta = 0.0f;
         float thetaInterval = (float) (2 * Math.PI) / faces;
@@ -86,15 +85,18 @@ public class slPolygonRenderer extends slRenderEngine {
                     generateShapes(faces);
                 }
                 glEnd();
-            }
-            my_wm.swapBuffers();
-            if (frameDelay != 0) {
-                try {
-                    Thread.sleep(frameDelay);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
+                if (frameDelay != 0) {
+                    try {
+                        Thread.sleep(frameDelay);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
                 }
+                my_wm.swapBuffers();
+                glClear(GL_COLOR_BUFFER_BIT);
             }
+            //my_wm.swapBuffers();
+
         } // while (!my_wm.isGlfwWindowClosed())
         my_wm.destroyGlfwWindow();
     }
@@ -103,7 +105,7 @@ public class slPolygonRenderer extends slRenderEngine {
         my_wm.updateContextToThis();
 
         GL.createCapabilities();
-        float CC_RED = 0.0f, CC_GREEN = 0.0f, CC_BLUE = 1.0f, CC_ALPHA = 1.0f;
+        float CC_RED = 0.0f, CC_GREEN = 0.0f, CC_BLUE = 0.0f, CC_ALPHA = 1.0f;
         glClearColor(CC_RED, CC_GREEN, CC_BLUE, CC_ALPHA);
     }
 }
