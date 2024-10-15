@@ -1,5 +1,6 @@
 package pkgSlPolygonRenderer;
 
+import org.lwjgl.opengl.GL;
 import pkgSlRenderer.slRenderEngine;
 import pkgSlUtils.slWindowManager;
 
@@ -30,7 +31,7 @@ public class slPolygonRenderer extends slRenderEngine {
 
     private void generateVertices(int rows, int cols, int shapeCount) {
         if (rows >= cols) {
-            radius = (float) (windowRange / (rows * 2));
+            radius = (float) (windowRange / (rows));
         } else if (cols > rows) {
             radius = (float) (windowRange / (cols * 2));
         }
@@ -42,7 +43,7 @@ public class slPolygonRenderer extends slRenderEngine {
                 center[yCoord] -= (radius * 2);
                 shapeCount -= cols;
             }
-            while (shapeCount > 0) {
+            while (shapeCount > 1) {
                 center[xCoord] += (radius * 2);
                 shapeCount--;
             }
@@ -55,12 +56,12 @@ public class slPolygonRenderer extends slRenderEngine {
         float aspectRatio = (float) WIN_HEIGHT / WIN_WIDTH;
         float xRadius = radius * aspectRatio;
         vertexOne[xCoord] = (float) (center[xCoord] + (xRadius * Math.cos(theta)));
-        vertexOne[yCoord] = (float) (center[yCoord] + (xRadius * Math.sin(theta)));
+        vertexOne[yCoord] = (float) (center[yCoord] + (radius * Math.sin(theta)));
         vertexOne[zCoord] = z;
         theta += thetaInterval;
         for (int triangle = 0; triangle < faces; triangle++) {
             vertexTwo[xCoord] = (float) (center[xCoord] + (xRadius * Math.cos(theta)));
-            vertexTwo[yCoord] = (float) (center[yCoord] + (xRadius * Math.sin(theta)));
+            vertexTwo[yCoord] = (float) (center[yCoord] + (radius * Math.sin(theta)));
             vertexTwo[zCoord] = z;
             theta += thetaInterval;
             glVertex3f(center[xCoord], center[yCoord], center[zCoord]);
@@ -70,7 +71,6 @@ public class slPolygonRenderer extends slRenderEngine {
             vertexOne[yCoord] = vertexTwo[yCoord];
         }
     }
-
     public void render(int frameDelay, int rows, int cols) {
         int shapes = rows * cols;
         while (!my_wm.isGlfwWindowClosed()) {
@@ -81,21 +81,29 @@ public class slPolygonRenderer extends slRenderEngine {
                 glBegin(GL_TRIANGLES);
                 glColor4f(myRand.nextFloat(), myRand.nextFloat(), myRand.nextFloat(), opacity);
                 //each pass creates one polygon
-                for (int shape = 0; shape < shapes; shape++) {
+                for (int shape = 1; shape <= shapes; shape++) {
                     generateVertices(rows, cols, shape);
                     generateShapes(faces);
-                    glEnd();
                 }
-                my_wm.swapBuffers();
-                if (frameDelay != 0) {
-                    try {
-                        Thread.sleep(frameDelay);
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
-                    }
+                glEnd();
+            }
+            my_wm.swapBuffers();
+            if (frameDelay != 0) {
+                try {
+                    Thread.sleep(frameDelay);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
                 }
             }
         } // while (!my_wm.isGlfwWindowClosed())
-        //my_wm.destroyGlfwWindow();
+        my_wm.destroyGlfwWindow();
+    }
+    public void initOpenGL(slWindowManager window) {
+        my_wm = window;
+        my_wm.updateContextToThis();
+
+        GL.createCapabilities();
+        float CC_RED = 0.0f, CC_GREEN = 0.0f, CC_BLUE = 1.0f, CC_ALPHA = 1.0f;
+        glClearColor(CC_RED, CC_GREEN, CC_BLUE, CC_ALPHA);
     }
 }
