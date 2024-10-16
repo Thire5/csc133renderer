@@ -27,14 +27,25 @@ public class slPolygonRenderer extends slRenderEngine {
     private float radius = .05f;
     private float[] vertexOne = new float[coordsPerVertex];
     private float[] vertexTwo = new float[coordsPerVertex];
+    private int defaultDelay = 500;
+    private int defaultRows = 30;
+    private int defaultCols = 30;
     Random myRand = new Random();
-
-    private void generateVertices(int rows, int cols, int shapeCount) {
+    private void setRadius(float radius) {
+        this.radius = radius;
+    }
+    private void calculateRadius(int rows, int cols) {
         if (rows >= cols) {
             radius = (float) (windowRange / (rows));
         } else if (cols > rows) {
             radius = (float) (windowRange / (cols * 2));
         }
+    }
+    private int calculateRowsCols() {
+        int rowCount = (int) (windowRange / radius);
+        return rowCount;
+    }
+    private void generateVertices(int rows, int cols, int shapeCount) {
         center[xCoord] = (-1 + radius);
         center[yCoord] = (1 - radius);
         center[zCoord] = (z);
@@ -70,8 +81,12 @@ public class slPolygonRenderer extends slRenderEngine {
             vertexOne[yCoord] = vertexTwo[yCoord];
         }
     }
+    public void render() {
+        render(defaultDelay, defaultRows, defaultCols);
+    }
     public void render(int frameDelay, int rows, int cols) {
         int shapes = rows * cols;
+        calculateRadius(rows, cols);
         while (!my_wm.isGlfwWindowClosed()) {
             glfwPollEvents();
             glClear(GL_COLOR_BUFFER_BIT);
@@ -95,8 +110,36 @@ public class slPolygonRenderer extends slRenderEngine {
                 my_wm.swapBuffers();
                 glClear(GL_COLOR_BUFFER_BIT);
             }
-            //my_wm.swapBuffers();
-
+        } // while (!my_wm.isGlfwWindowClosed())
+        my_wm.destroyGlfwWindow();
+    }
+    public void render(int frameDelay, float radius) {
+        setRadius(radius);
+        int rowsCols = calculateRowsCols();
+        int shapes = rowsCols * rowsCols;
+        while (!my_wm.isGlfwWindowClosed()) {
+            glfwPollEvents();
+            glClear(GL_COLOR_BUFFER_BIT);
+            //each pass fills window
+            for (int faces = faceMinimum; faces <= faceMaximum; faces++) {
+                glBegin(GL_TRIANGLES);
+                glColor4f(myRand.nextFloat(), myRand.nextFloat(), myRand.nextFloat(), opacity);
+                //each pass creates one polygon
+                for (int shape = 1; shape <= shapes; shape++) {
+                    generateVertices(rowsCols, rowsCols, shape);
+                    generateShapes(faces);
+                }
+                glEnd();
+                if (frameDelay != 0) {
+                    try {
+                        Thread.sleep(frameDelay);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+                my_wm.swapBuffers();
+                glClear(GL_COLOR_BUFFER_BIT);
+            }
         } // while (!my_wm.isGlfwWindowClosed())
         my_wm.destroyGlfwWindow();
     }
