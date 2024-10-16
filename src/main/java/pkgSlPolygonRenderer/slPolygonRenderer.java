@@ -30,9 +30,13 @@ public class slPolygonRenderer extends slRenderEngine {
     private int defaultDelay = 500;
     private int defaultRows = 30;
     private int defaultCols = 30;
+    private int randomCount = 100;
     Random myRand = new Random();
-    private void setRadius(float radius) {
+    public void setRadius(float radius) {
         this.radius = radius;
+    }
+    public void setRandomCount(int count) {
+        this.randomCount = count;
     }
     private void calculateRadius(int rows, int cols) {
         if (rows >= cols) {
@@ -83,6 +87,32 @@ public class slPolygonRenderer extends slRenderEngine {
     }
     public void render() {
         render(defaultDelay, defaultRows, defaultCols);
+    }
+    public void render(int frameDelay, int rows, int cols, int faces) {
+        int shapes = rows * cols;
+        calculateRadius(rows, cols);
+        while (!my_wm.isGlfwWindowClosed()) {
+            glfwPollEvents();
+            glClear(GL_COLOR_BUFFER_BIT);
+            glBegin(GL_TRIANGLES);
+            glColor4f(myRand.nextFloat(), myRand.nextFloat(), myRand.nextFloat(), opacity);
+            //each pass creates one polygon
+            for (int shape = 1; shape <= shapes; shape++) {
+                generateVertices(rows, cols, shape);
+                generateShapes(faces);
+            }
+            glEnd();
+            if (frameDelay != 0) {
+                try {
+                    Thread.sleep(frameDelay);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            my_wm.swapBuffers();
+            glClear(GL_COLOR_BUFFER_BIT);
+        } // while (!my_wm.isGlfwWindowClosed())
+        my_wm.destroyGlfwWindow();
     }
     public void render(int frameDelay, int rows, int cols) {
         int shapes = rows * cols;
