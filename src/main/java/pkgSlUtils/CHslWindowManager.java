@@ -6,17 +6,17 @@ import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-public class slWindowManager {
+public class CHslWindowManager {
     private static long my_win = NULL;
-    public static slWindowManager window;
+    public static CHslWindowManager window;
     private static void slWindowCreate(int win_width, int win_height, String title) {
         if(my_win == NULL) {
             my_win = glfwCreateWindow(win_width, win_height, title, NULL, NULL);
         }
     }
-    public static slWindowManager get() {
+    public static CHslWindowManager get() {
         if(window == null) {
-            window = new slWindowManager();
+            window = new CHslWindowManager();
         }
         return window;
     }

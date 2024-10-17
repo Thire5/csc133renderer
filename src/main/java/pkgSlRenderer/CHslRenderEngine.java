@@ -1,14 +1,14 @@
 package pkgSlRenderer;
 
 import org.lwjgl.opengl.GL;
-import pkgSlUtils.slWindowManager;
+import pkgSlUtils.CHslWindowManager;
 
 import java.util.Random;
-import static pkgDriver.slSpot.*;
+import static pkgDriver.CHslSpot.*;
 import static java.lang.Math.PI;
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.*;
-public abstract class slRenderEngine {
+public abstract class CHslRenderEngine {
     private final int NUM_RGBA = 4;
     private final int NUM_3D_COORDS = 3;
     private final int TRIANGLES_PER_CIRCLE = 40;
@@ -17,7 +17,7 @@ public abstract class slRenderEngine {
     private final int UPDATE_INTERVAL = 100;
     private float[] rand_colors = new float[NUM_RGBA];
     Random myRand = new Random();
-    private slWindowManager my_wm = new slWindowManager();
+    private CHslWindowManager my_wm = new CHslWindowManager();
     private float[] rand_coords = new float[NUM_3D_COORDS];
     private float[] vertex_one = new float[NUM_3D_COORDS];
     private float[] vertex_two = new float[NUM_3D_COORDS];
@@ -88,7 +88,7 @@ public abstract class slRenderEngine {
         my_wm.destroyGlfwWindow();
     } // public void render(...)
 
-    public void initOpenGL(slWindowManager window) {
+    public void initOpenGL(CHslWindowManager window) {
         my_wm = window;
         my_wm.updateContextToThis();
 
