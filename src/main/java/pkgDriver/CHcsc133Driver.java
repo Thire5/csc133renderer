@@ -8,7 +8,7 @@ public class CHcsc133Driver {
     public static final int cols = 30;
     public static final int frameDelay = 1000;
     public static final int faces = 3;
-    public static final float radius = .05f;
+    public static final float radius = .03f;
     //note: I've added a fourth overload that takes frameDelay, rows, columns, and faces as arguments to display only specified polygons
     public static void main(String[] my_args) {
         CHslPolygonRenderer my_re = new CHslPolygonRenderer();

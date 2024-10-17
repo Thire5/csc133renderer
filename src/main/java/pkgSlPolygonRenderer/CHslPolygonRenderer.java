@@ -19,6 +19,7 @@ public class CHslPolygonRenderer extends CHslRenderEngine {
     private final int Z_COORD = 2;
     private final float Z = 0.0f;
     private final float WINDOW_RANGE = 2.0f;
+    private final float ASPECT_RATIO = (float) WIN_HEIGHT / WIN_WIDTH;
     private float[] center = new float[COORDS_PER_VERTEX];
     private final float opacity = 1.0f;
     private float radius = .05f;
@@ -37,18 +38,19 @@ public class CHslPolygonRenderer extends CHslRenderEngine {
     }
     private void calculateRadius(int rows, int cols) {
         if (rows >= cols) {
-            radius = (float) (WINDOW_RANGE / (rows));
-        } else if (cols > rows) {
-            radius = (float) (WINDOW_RANGE / (cols * 2));
+            radius = (float) (WINDOW_RANGE / (rows)) / 2;
+        }
+        else if (cols > rows) {
+            radius = (float) (WINDOW_RANGE / (cols)) / 2;
         }
     }
     private int calculateRows() {
-        float rowCountTemp = (WINDOW_RANGE / radius);
+        float rowCountTemp = (WINDOW_RANGE / (radius * 2));
         int rowCount = (int) Math.floor(rowCountTemp);
         return rowCount;
     }
     private int calculateCols() {
-        float colCountTemp = (WINDOW_RANGE / radius);
+        float colCountTemp = (WINDOW_RANGE / (radius * 2));
         int colCount = (int) Math.floor(colCountTemp);
         return colCount;
     }
@@ -58,11 +60,11 @@ public class CHslPolygonRenderer extends CHslRenderEngine {
         center[Z_COORD] = (Z);
         if (shapeCount > 0) {
             while (shapeCount > cols) {
-                center[Y_COORD] -= (radius * 2);
+                center[Y_COORD] -= (WINDOW_RANGE / rows);
                 shapeCount -= cols;
             }
             while (shapeCount > 1) {
-                center[X_COORD] += (radius * 2);
+                center[X_COORD] += (WINDOW_RANGE / cols);
                 shapeCount--;
             }
         }
@@ -81,8 +83,7 @@ public class CHslPolygonRenderer extends CHslRenderEngine {
     private void generateShapes(int faces) {
         float theta = 0.0f;
         float thetaInterval = (float) (2 * Math.PI) / faces;
-        float aspectRatio = (float) WIN_HEIGHT / WIN_WIDTH;
-        float xRadius = radius * aspectRatio;
+        float xRadius = radius * ASPECT_RATIO;
         vertexOne[X_COORD] = (float) (center[X_COORD] + (xRadius * Math.cos(theta)));
         vertexOne[Y_COORD] = (float) (center[Y_COORD] + (radius * Math.sin(theta)));
         vertexOne[Z_COORD] = Z;
