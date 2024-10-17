@@ -20,14 +20,14 @@ public class CHslPolygonRenderer extends CHslRenderEngine {
     private final float Z = 0.0f;
     private final float WINDOW_RANGE = 2.0f;
     private final float ASPECT_RATIO = (float) WIN_HEIGHT / WIN_WIDTH;
+    private final int DEFAULT_DELAY = 500;
+    private final int DEFAULT_ROWS = 30;
+    private final int DEFAULT_COLS = 30;
     private float[] center = new float[COORDS_PER_VERTEX];
     private final float opacity = 1.0f;
     private float radius = .05f;
     private float[] vertexOne = new float[COORDS_PER_VERTEX];
     private float[] vertexTwo = new float[COORDS_PER_VERTEX];
-    private final int DEFAULT_DELAY = 500;
-    private final int DEFAULT_ROWS = 30;
-    private final int DEFAULT_COLS = 30;
     private int randomCount = 100;
     Random myRand = new Random();
     public void setRadius(float radius) {

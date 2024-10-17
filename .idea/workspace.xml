@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e201c54d-30ed-489e-9aec-7cc267dcd7de" name="Changes" comment="code cleanup, added renderRandom method">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pkgDriver/CHslSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgDriver/CHslSpot.java" afterDir="false" />
+    <list default="true" id="e201c54d-30ed-489e-9aec-7cc267dcd7de" name="Changes" comment="bug fixes, code cleanup">
+      <change beforePath="$PROJECT_DIR$/src/main/java/pkgDriver/CHcsc133Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgDriver/CHcsc133Driver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pkgSlPolygonRenderer/CHslPolygonRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgSlPolygonRenderer/CHslPolygonRenderer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -149,7 +148,7 @@
       <workItem from="1729107035006" duration="397000" />
       <workItem from="1729135412593" duration="881000" />
       <workItem from="1729193688472" duration="1504000" />
-      <workItem from="1729204119053" duration="1634000" />
+      <workItem from="1729204119053" duration="2191000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit pt 2">
       <option name="closed" value="true" />
@@ -359,7 +358,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729195191362</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="bug fixes, code cleanup">
+      <option name="closed" value="true" />
+      <created>1729205972925</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1729205972925</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -407,7 +414,8 @@
     <MESSAGE value="added overloads" />
     <MESSAGE value="added fourth overload to specify faces" />
     <MESSAGE value="code cleanup, added renderRandom method" />
-    <option name="LAST_COMMIT_MESSAGE" value="code cleanup, added renderRandom method" />
+    <MESSAGE value="bug fixes, code cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug fixes, code cleanup" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
