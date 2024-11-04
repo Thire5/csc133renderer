@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e201c54d-30ed-489e-9aec-7cc267dcd7de" name="Changes" comment="minor tidying, final version">
-      <change afterPath="$PROJECT_DIR$/src/main/java/pkgPingPongArray/CHslPingPongArray.java" afterDir="false" />
+    <list default="true" id="e201c54d-30ed-489e-9aec-7cc267dcd7de" name="Changes" comment="merged ping pong code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pkgPingPongArray/CHslPingPongArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgPingPongArray/CHslPingPongArray.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +61,7 @@
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/crhen/IdeaProjects/PingPong",
+    "last_opened_file_path": "C:/Users/crhen/IdeaProjects/CSC133",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -179,7 +179,8 @@
       <workItem from="1730245715415" duration="617000" />
       <workItem from="1730246709378" duration="956000" />
       <workItem from="1730694911794" duration="690000" />
-      <workItem from="1730697378915" duration="540000" />
+      <workItem from="1730697378915" duration="571000" />
+      <workItem from="1730750567503" duration="1840000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit pt 2">
       <option name="closed" value="true" />
@@ -405,7 +406,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729206343619</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="merged ping pong code">
+      <option name="closed" value="true" />
+      <created>1730697945355</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1730697945355</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -429,7 +438,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="initial commit" />
     <MESSAGE value="implementing get method" />
     <MESSAGE value="added makeContextCurrent, new variables" />
     <MESSAGE value="moved and reformatted render method" />
@@ -454,7 +462,8 @@
     <MESSAGE value="code cleanup, added renderRandom method" />
     <MESSAGE value="bug fixes, code cleanup" />
     <MESSAGE value="minor tidying, final version" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor tidying, final version" />
+    <MESSAGE value="merged ping pong code" />
+    <option name="LAST_COMMIT_MESSAGE" value="merged ping pong code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
