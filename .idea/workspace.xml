@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e201c54d-30ed-489e-9aec-7cc267dcd7de" name="Changes" comment="merged ping pong code">
+    <list default="true" id="e201c54d-30ed-489e-9aec-7cc267dcd7de" name="Changes" comment="added initial game of life methods">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pkgPingPongArray/CHslPingPongArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgPingPongArray/CHslPingPongArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pkgSlPolygonRenderer/CHslPolygonRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgSlPolygonRenderer/CHslPolygonRenderer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,31 +50,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.CHcsc133Driver.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.csc133Driver.executor": "Run",
-    "Gradle.CSC133 [:CSC133.Main.main()].executor": "Run",
-    "Gradle.CSC133.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/crhen/IdeaProjects/CSC133",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "C:/Users/crhen/IdeaProjects/CSC133/src/main/java/CSC133/Main.java",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.CHcsc133Driver.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.csc133Driver.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CSC133 [:CSC133.Main.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CSC133.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/crhen/IdeaProjects/CSC133&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/crhen/IdeaProjects/CSC133/src/main/java/CSC133/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.CHcsc133Driver">
     <configuration name="CHcsc133Driver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="pkgDriver.CHcsc133Driver" />
@@ -180,7 +180,8 @@
       <workItem from="1730246709378" duration="956000" />
       <workItem from="1730694911794" duration="690000" />
       <workItem from="1730697378915" duration="571000" />
-      <workItem from="1730750567503" duration="1840000" />
+      <workItem from="1730750567503" duration="2463000" />
+      <workItem from="1730781016376" duration="849000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit pt 2">
       <option name="closed" value="true" />
@@ -414,7 +415,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730697945355</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="added initial game of life methods">
+      <option name="closed" value="true" />
+      <created>1730752646434</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1730752646434</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -438,7 +447,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="implementing get method" />
     <MESSAGE value="added makeContextCurrent, new variables" />
     <MESSAGE value="moved and reformatted render method" />
     <MESSAGE value="further updates to render, initGLFWWindow" />
@@ -463,7 +471,8 @@
     <MESSAGE value="bug fixes, code cleanup" />
     <MESSAGE value="minor tidying, final version" />
     <MESSAGE value="merged ping pong code" />
-    <option name="LAST_COMMIT_MESSAGE" value="merged ping pong code" />
+    <MESSAGE value="added initial game of life methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="added initial game of life methods" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

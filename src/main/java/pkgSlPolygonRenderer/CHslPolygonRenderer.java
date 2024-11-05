@@ -1,5 +1,4 @@
 package pkgSlPolygonRenderer;
-
 import org.lwjgl.opengl.GL;
 import pkgSlRenderer.CHslRenderEngine;
 import pkgSlUtils.CHslWindowManager;
@@ -102,6 +101,32 @@ public class CHslPolygonRenderer extends CHslRenderEngine {
     }
     public void render() {
         render(DEFAULT_DELAY, DEFAULT_ROWS, DEFAULT_COLS);
+    }
+    public void renderGameOfLife(int[][] board, int rows, int cols, int faces) {
+        calculateRadius(rows, cols);
+        while (!my_wm.isGlfwWindowClosed()) {
+            int shape = 1;
+            glfwPollEvents();
+            glClear(GL_COLOR_BUFFER_BIT);
+            glBegin(GL_TRIANGLES);
+            //each pass creates one polygon
+            for(int row = 0; row < rows; row++) {
+                for(int col = 0; col < cols; col++) {
+                    if(board[row][col] == 0) {
+                        glColor4f(1.0, 0.0, 0.0, opacity);
+                    }
+                    if(board[row][col] == 1) {
+                        glColor4f(0.0, 1.0, 0.0, opacity);
+                    }
+                        generateVertices(rows, cols, shape);
+                        generateShapes(faces);
+                }
+            }
+            glEnd();
+            my_wm.swapBuffers();
+            glClear(GL_COLOR_BUFFER_BIT);
+        } // while (!my_wm.isGlfwWindowClosed())
+        my_wm.destroyGlfwWindow();
     }
     public void render(int frameDelay, int rows, int cols, int faces) {
         int shapes = rows * cols;
