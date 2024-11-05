@@ -80,7 +80,7 @@ public class CHslPolygonRenderer extends CHslRenderEngine {
         center[Z_COORD] = Z;
     }
     private void generateShapes(int faces) {
-        float theta = 0.0f;
+        float theta = (float) (Math.PI / faces);
         float thetaInterval = (float) (2 * Math.PI) / faces;
         float xRadius = radius * ASPECT_RATIO;
         vertexOne[X_COORD] = (float) (center[X_COORD] + (xRadius * Math.cos(theta)));
@@ -102,7 +102,7 @@ public class CHslPolygonRenderer extends CHslRenderEngine {
     public void render() {
         render(DEFAULT_DELAY, DEFAULT_ROWS, DEFAULT_COLS);
     }
-    public void renderGameOfLife(int[][] board, int rows, int cols, int faces) {
+    public static void renderGameOfLife(int[][] board, int rows, int cols, int faces) {
         calculateRadius(rows, cols);
         while (!my_wm.isGlfwWindowClosed()) {
             int shape = 1;

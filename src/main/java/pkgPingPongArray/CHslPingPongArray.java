@@ -1,6 +1,7 @@
 package pkgPingPongArray;
 
 import java.util.Random;
+import pkgSlPolygonRenderer.CHslPolygonRenderer;
 
 public class CHslPingPongArray {
     private final int defaultRandMin = 0;
@@ -10,6 +11,7 @@ public class CHslPingPongArray {
     private int[][] live;
     private int[][] next;
     private int frameDelay = 500;
+    private final int faces = 4;
     Random rand = new Random();
     public void createArray(int rows, int cols) {
         this.rows = rows;
@@ -33,6 +35,7 @@ public class CHslPingPongArray {
         createArray(rows, cols);
         boolean keepRunning = true;
         while (keepRunning) {
+            CHslPolygonRenderer.renderGameOfLife(live, rows, cols, faces);
             gameOfLifeStep();
             swap();
             if (frameDelay != 0) {

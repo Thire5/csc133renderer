@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e201c54d-30ed-489e-9aec-7cc267dcd7de" name="Changes" comment="added initial game of life methods">
+    <list default="true" id="e201c54d-30ed-489e-9aec-7cc267dcd7de" name="Changes" comment="added initial render game of life method">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pkgPingPongArray/CHslPingPongArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgPingPongArray/CHslPingPongArray.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pkgSlPolygonRenderer/CHslPolygonRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgSlPolygonRenderer/CHslPolygonRenderer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -181,7 +182,9 @@
       <workItem from="1730694911794" duration="690000" />
       <workItem from="1730697378915" duration="571000" />
       <workItem from="1730750567503" duration="2463000" />
-      <workItem from="1730781016376" duration="849000" />
+      <workItem from="1730781016376" duration="909000" />
+      <workItem from="1730842283043" duration="730000" />
+      <workItem from="1730843020664" duration="166000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit pt 2">
       <option name="closed" value="true" />
@@ -423,7 +426,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730752646434</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="added initial render game of life method">
+      <option name="closed" value="true" />
+      <created>1730781910471</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1730781910471</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -447,7 +458,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added makeContextCurrent, new variables" />
     <MESSAGE value="moved and reformatted render method" />
     <MESSAGE value="further updates to render, initGLFWWindow" />
     <MESSAGE value="added all constants and variables" />
@@ -472,7 +482,8 @@
     <MESSAGE value="minor tidying, final version" />
     <MESSAGE value="merged ping pong code" />
     <MESSAGE value="added initial game of life methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="added initial game of life methods" />
+    <MESSAGE value="added initial render game of life method" />
+    <option name="LAST_COMMIT_MESSAGE" value="added initial render game of life method" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
