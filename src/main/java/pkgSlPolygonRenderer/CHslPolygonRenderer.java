@@ -102,7 +102,7 @@ public class CHslPolygonRenderer extends CHslRenderEngine {
     public void render() {
         render(DEFAULT_DELAY, DEFAULT_ROWS, DEFAULT_COLS);
     }
-    public static void renderGameOfLife(int[][] board, int rows, int cols, int faces) {
+    public void renderGameOfLife(int[][] board, int rows, int cols, int faces) {
         calculateRadius(rows, cols);
         while (!my_wm.isGlfwWindowClosed()) {
             int shape = 1;
@@ -113,13 +113,14 @@ public class CHslPolygonRenderer extends CHslRenderEngine {
             for(int row = 0; row < rows; row++) {
                 for(int col = 0; col < cols; col++) {
                     if(board[row][col] == 0) {
-                        glColor4f(1.0, 0.0, 0.0, opacity);
+                        glColor4f(1.0f, 0.0f, 0.0f, opacity);
                     }
                     if(board[row][col] == 1) {
-                        glColor4f(0.0, 1.0, 0.0, opacity);
+                        glColor4f(0.0f, 1.0f, 0.0f, opacity);
                     }
                         generateVertices(rows, cols, shape);
                         generateShapes(faces);
+                        shape++;
                 }
             }
             glEnd();

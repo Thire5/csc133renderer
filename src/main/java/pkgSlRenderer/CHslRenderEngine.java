@@ -4,10 +4,12 @@ import org.lwjgl.opengl.GL;
 import pkgSlUtils.CHslWindowManager;
 
 import java.util.Random;
-import static pkgDriver.CHslSpot.*;
+
 import static java.lang.Math.PI;
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.*;
+import static pkgDriver.CHslSpot.WIN_HEIGHT;
+import static pkgDriver.CHslSpot.WIN_WIDTH;
 public abstract class CHslRenderEngine {
     private final int NUM_RGBA = 4;
     private final int NUM_3D_COORDS = 3;

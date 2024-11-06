@@ -13,6 +13,7 @@ public class CHslPingPongArray {
     private int frameDelay = 500;
     private final int faces = 4;
     Random rand = new Random();
+    CHslPolygonRenderer renderer = new CHslPolygonRenderer();
     public void createArray(int rows, int cols) {
         this.rows = rows;
         this.cols = cols;
@@ -35,7 +36,7 @@ public class CHslPingPongArray {
         createArray(rows, cols);
         boolean keepRunning = true;
         while (keepRunning) {
-            CHslPolygonRenderer.renderGameOfLife(live, rows, cols, faces);
+            renderer.renderGameOfLife(live, rows, cols, faces);
             gameOfLifeStep();
             swap();
             if (frameDelay != 0) {

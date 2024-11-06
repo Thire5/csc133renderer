@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e201c54d-30ed-489e-9aec-7cc267dcd7de" name="Changes" comment="added initial render game of life method">
+    <list default="true" id="e201c54d-30ed-489e-9aec-7cc267dcd7de" name="Changes" comment="integrated calls between array and render">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pkgDriver/CHcsc133Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgDriver/CHcsc133Driver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pkgPingPongArray/CHslPingPongArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgPingPongArray/CHslPingPongArray.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pkgSlPolygonRenderer/CHslPolygonRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgSlPolygonRenderer/CHslPolygonRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/CHslRenderEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/CHslRenderEngine.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +186,9 @@
       <workItem from="1730750567503" duration="2463000" />
       <workItem from="1730781016376" duration="909000" />
       <workItem from="1730842283043" duration="730000" />
-      <workItem from="1730843020664" duration="166000" />
+      <workItem from="1730843020664" duration="210000" />
+      <workItem from="1730856480620" duration="39000" />
+      <workItem from="1730856525612" duration="1429000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit pt 2">
       <option name="closed" value="true" />
@@ -434,7 +438,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730781910471</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="integrated calls between array and render">
+      <option name="closed" value="true" />
+      <created>1730843225455</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1730843225455</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -458,7 +470,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="moved and reformatted render method" />
     <MESSAGE value="further updates to render, initGLFWWindow" />
     <MESSAGE value="added all constants and variables" />
     <MESSAGE value="made at least methods obey SRP" />
@@ -483,14 +494,15 @@
     <MESSAGE value="merged ping pong code" />
     <MESSAGE value="added initial game of life methods" />
     <MESSAGE value="added initial render game of life method" />
-    <option name="LAST_COMMIT_MESSAGE" value="added initial render game of life method" />
+    <MESSAGE value="integrated calls between array and render" />
+    <option name="LAST_COMMIT_MESSAGE" value="integrated calls between array and render" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/pkgDriver/CHcsc133Driver.java</url>
-          <line>9</line>
+          <line>10</line>
           <properties class="pkgDriver.CHcsc133Driver">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
