@@ -2,7 +2,7 @@ package pkgSlPolygonRenderer;
 import org.lwjgl.opengl.GL;
 import pkgSlRenderer.CHslRenderEngine;
 import pkgSlUtils.CHslWindowManager;
-
+import pkgPingPongArray.CHslPingPongArray;
 import static org.lwjgl.glfw.GLFW.glfwPollEvents;
 import static org.lwjgl.opengl.GL11.*;
 import java.util.Random;
@@ -28,7 +28,9 @@ public class CHslPolygonRenderer extends CHslRenderEngine {
     private float[] vertexOne = new float[COORDS_PER_VERTEX];
     private float[] vertexTwo = new float[COORDS_PER_VERTEX];
     private int randomCount = 100;
+    private int frameDelay = 500;
     Random myRand = new Random();
+    CHslPingPongArray game_board = new CHslPingPongArray();
     public void setRadius(float radius) {
         this.radius = radius;
     }
@@ -102,25 +104,36 @@ public class CHslPolygonRenderer extends CHslRenderEngine {
     public void render() {
         render(DEFAULT_DELAY, DEFAULT_ROWS, DEFAULT_COLS);
     }
-    public void renderGameOfLife(int[][] board, int rows, int cols, int faces) {
+    public void renderGameOfLife(int rows, int cols) {
         calculateRadius(rows, cols);
-        while (!my_wm.isGlfwWindowClosed()) {
+        boolean keepRunning = true;
+        game_board.createArray(rows, cols);
+        while (keepRunning && !my_wm.isGlfwWindowClosed()) {
+            game_board.gameOfLifeStep();
+            game_board.swap();
             int shape = 1;
             glfwPollEvents();
             glClear(GL_COLOR_BUFFER_BIT);
             glBegin(GL_TRIANGLES);
-            //each pass creates one polygon
-            for(int row = 0; row < rows; row++) {
-                for(int col = 0; col < cols; col++) {
-                    if(board[row][col] == 0) {
+            for (int row = 0; row < rows; row++) {
+                for (int col = 0; col < cols; col++) {
+                    int cell = game_board.getCellLive(row, col);
+                    if (cell == 0) {
                         glColor4f(1.0f, 0.0f, 0.0f, opacity);
                     }
-                    if(board[row][col] == 1) {
+                    if (cell == 1) {
                         glColor4f(0.0f, 1.0f, 0.0f, opacity);
                     }
-                        generateVertices(rows, cols, shape);
-                        generateShapes(faces);
-                        shape++;
+                    generateVertices(rows, cols, shape);
+                    generateShapes(4);
+                    shape++;
+                }
+            }
+            if (frameDelay != 0) {
+                try {
+                    Thread.sleep(frameDelay);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
                 }
             }
             glEnd();

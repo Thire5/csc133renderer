@@ -13,7 +13,6 @@ public class CHslPingPongArray {
     private int frameDelay = 500;
     private final int faces = 4;
     Random rand = new Random();
-    CHslPolygonRenderer renderer = new CHslPolygonRenderer();
     public void createArray(int rows, int cols) {
         this.rows = rows;
         this.cols = cols;
@@ -25,7 +24,7 @@ public class CHslPingPongArray {
             }
         }
     }
-    private void gameOfLifeStep() {
+    public void gameOfLifeStep() {
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
                 checkSurvive(row, col);
@@ -36,7 +35,6 @@ public class CHslPingPongArray {
         createArray(rows, cols);
         boolean keepRunning = true;
         while (keepRunning) {
-            renderer.renderGameOfLife(live, rows, cols, faces);
             gameOfLifeStep();
             swap();
             if (frameDelay != 0) {
@@ -127,6 +125,8 @@ public class CHslPingPongArray {
             if (neighbors == 3) {
                 next[row][col] = 1;
             }
+            else
+                next[row][col] = 0;
         }
         if (live[row][col] == 1) {
             if (neighbors == 3 || neighbors == 2) {
@@ -136,8 +136,9 @@ public class CHslPingPongArray {
                 next[row][col] = 0;
             }
         }
-        else
-            System.out.println("invalid cell identity");
+        if (live[row][col] != 1 && live[row][col] != 0) {
+            System.out.println("invalid cell identity: " + live[row][col]);
+        }
     }
     public int countNearest(int row, int col) {
         int count = 0;
