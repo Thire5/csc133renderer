@@ -1,9 +1,11 @@
 package pkgSlPolygonRenderer;
 import org.lwjgl.opengl.GL;
+import pkgKeyReader.CHslKeyReader;
 import pkgSlRenderer.CHslRenderEngine;
 import pkgSlUtils.CHslWindowManager;
 import pkgPingPongArray.CHslPingPongArray;
-import static org.lwjgl.glfw.GLFW.glfwPollEvents;
+
+import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.*;
 import java.util.Random;
 import static pkgDriver.CHslSpot.*;
@@ -139,6 +141,29 @@ public class CHslPolygonRenderer extends CHslRenderEngine {
             glEnd();
             my_wm.swapBuffers();
             glClear(GL_COLOR_BUFFER_BIT);
+            if(CHslKeyReader.isKeyPressed(GLFW_KEY_I)) {
+                keepRunning = false;
+                frameDelay += 500;
+                System.out.println("+++ Frame delay is now: " + frameDelay + " ms!");
+                keepRunning = true;
+                CHslKeyReader.resetKeyPressEvent(GLFW_KEY_I);
+            }
+            if(CHslKeyReader.isKeyPressed(GLFW_KEY_D)) {
+                keepRunning = false;
+                if(frameDelay != 0) {
+                    frameDelay -= 500;
+                }
+                System.out.println("--- Frame delay is now: " + frameDelay + " ms!");
+                keepRunning = true;
+                CHslKeyReader.resetKeyPressEvent(GLFW_KEY_D);
+            }
+            if(CHslKeyReader.isKeyPressed(GLFW_KEY_R)) {
+                keepRunning = false;
+                System.out.println("resetting simulation");
+                CHslKeyReader.resetKeyPressEvent(GLFW_KEY_R);
+                game_board.reset();
+                keepRunning = true;
+            }
         } // while (!my_wm.isGlfwWindowClosed())
         my_wm.destroyGlfwWindow();
     }

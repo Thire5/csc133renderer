@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e201c54d-30ed-489e-9aec-7cc267dcd7de" name="Changes" comment="bug fixes">
+    <list default="true" id="e201c54d-30ed-489e-9aec-7cc267dcd7de" name="Changes" comment="bug fixes, moved game of life method, now functional">
+      <change afterPath="$PROJECT_DIR$/src/main/java/pkgKeyReader/CHslKeyReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pkgDriver/CHcsc133Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgDriver/CHcsc133Driver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pkgPingPongArray/CHslPingPongArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgPingPongArray/CHslPingPongArray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pkgSlPolygonRenderer/CHslPolygonRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgSlPolygonRenderer/CHslPolygonRenderer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,7 +185,8 @@
       <workItem from="1730842283043" duration="730000" />
       <workItem from="1730843020664" duration="210000" />
       <workItem from="1730856480620" duration="39000" />
-      <workItem from="1730856525612" duration="2511000" />
+      <workItem from="1730856525612" duration="2909000" />
+      <workItem from="1731013575985" duration="2848000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit pt 2">
       <option name="closed" value="true" />
@@ -453,7 +452,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730857977862</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="bug fixes, moved game of life method, now functional">
+      <option name="closed" value="true" />
+      <created>1730868235660</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1730868235660</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -477,7 +484,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="further updates to render, initGLFWWindow" />
     <MESSAGE value="added all constants and variables" />
     <MESSAGE value="made at least methods obey SRP" />
     <MESSAGE value="added new render engine methods" />
@@ -502,21 +508,7 @@
     <MESSAGE value="added initial render game of life method" />
     <MESSAGE value="integrated calls between array and render" />
     <MESSAGE value="bug fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug fixes" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/pkgDriver/CHcsc133Driver.java</url>
-          <line>10</line>
-          <properties class="pkgDriver.CHcsc133Driver">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="bug fixes, moved game of life method, now functional" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug fixes, moved game of life method, now functional" />
   </component>
 </project>
