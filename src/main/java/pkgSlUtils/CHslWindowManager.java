@@ -2,15 +2,11 @@ package pkgSlUtils;
 
 import org.lwjgl.glfw.GLFWKeyCallback;
 import org.lwjgl.opengl.*;
-import pkgKeyReader.CHslKeyReader;
-
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static pkgKeyReader.CHslKeyReader.*;
-import static org.lwjgl.glfw.GLFWKeyCallback.*;
 public class CHslWindowManager {
-    private CHslKeyReader keyReader = new CHslKeyReader();
     private static long my_win = NULL;
     public static CHslWindowManager window;
     private GLFWKeyCallback keyCallback = new GLFWKeyCallback() {

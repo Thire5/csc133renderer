@@ -10,8 +10,6 @@ public class CHslPingPongArray {
     private int cols;
     private int[][] live;
     private int[][] next;
-    private int frameDelay = 500;
-    private final int faces = 4;
     Random rand = new Random();
     public void createArray(int rows, int cols) {
         this.rows = rows;
@@ -28,21 +26,6 @@ public class CHslPingPongArray {
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
                 checkSurvive(row, col);
-            }
-        }
-    }
-    public void gameOfLife(int rows, int cols) {
-        createArray(rows, cols);
-        boolean keepRunning = true;
-        while (keepRunning) {
-            gameOfLifeStep();
-            swap();
-            if (frameDelay != 0) {
-                try {
-                    Thread.sleep(frameDelay);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
             }
         }
     }
