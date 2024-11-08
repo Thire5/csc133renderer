@@ -121,10 +121,12 @@ public class CHslPolygonRenderer extends CHslRenderEngine {
                 for (int col = 0; col < cols; col++) {
                     int cell = game_board.getCellLive(row, col);
                     if (cell == 0) {
-                        glColor4f(1.0f, 0.0f, 0.0f, opacity);
+                        float RED = 1.0f, GREEN = 0.0f, BLUE = 0.0f;
+                        glColor4f(RED, GREEN, BLUE, opacity);
                     }
                     if (cell == 1) {
-                        glColor4f(0.0f, 1.0f, 0.0f, opacity);
+                        float RED = 0.0f, GREEN = 1.0f, BLUE = 0.0f;
+                        glColor4f(RED, GREEN, BLUE, opacity);
                     }
                     generateVertices(rows, cols, shape);
                     generateShapes(4);

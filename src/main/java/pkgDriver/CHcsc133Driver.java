@@ -1,13 +1,11 @@
 package pkgDriver;
-import pkgPingPongArray.CHslPingPongArray;
 import pkgSlPolygonRenderer.CHslPolygonRenderer;
 
 import static pkgDriver.CHslSpot.*;
 import pkgSlUtils.CHslWindowManager;
 public class CHcsc133Driver {
-    public static final int rows = 10;
-    public static final int cols = 10;
-    //note: I've added a fourth overload that takes frameDelay, rows, columns, and faces as arguments to display only specified polygons
+    public static final int rows = 100;
+    public static final int cols = 100;
     public static void main(String[] my_args) {
         CHslPolygonRenderer my_re = new CHslPolygonRenderer();
         CHslWindowManager.get().initGLFWWindow(WIN_WIDTH, WIN_HEIGHT, "CSUS CSC133");

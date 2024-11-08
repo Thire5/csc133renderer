@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e201c54d-30ed-489e-9aec-7cc267dcd7de" name="Changes" comment="bug fixes, moved game of life method, now functional">
-      <change afterPath="$PROJECT_DIR$/src/main/java/pkgKeyReader/CHslKeyReader.java" afterDir="false" />
+    <list default="true" id="e201c54d-30ed-489e-9aec-7cc267dcd7de" name="Changes" comment="added initial keyreader build">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pkgKeyReader/CHslKeyReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgKeyReader/CHslKeyReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pkgSlPolygonRenderer/CHslPolygonRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgSlPolygonRenderer/CHslPolygonRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pkgSlUtils/CHslWindowManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgSlUtils/CHslWindowManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,7 +188,8 @@
       <workItem from="1730843020664" duration="210000" />
       <workItem from="1730856480620" duration="39000" />
       <workItem from="1730856525612" duration="2909000" />
-      <workItem from="1731013575985" duration="2848000" />
+      <workItem from="1731013575985" duration="3394000" />
+      <workItem from="1731022927401" duration="4100000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit pt 2">
       <option name="closed" value="true" />
@@ -460,7 +463,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730868235660</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="added initial keyreader build">
+      <option name="closed" value="true" />
+      <created>1731016980891</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1731016980891</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -484,7 +495,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added all constants and variables" />
     <MESSAGE value="made at least methods obey SRP" />
     <MESSAGE value="added new render engine methods" />
     <MESSAGE value="filled out randColors and randVertices methods" />
@@ -509,6 +519,7 @@
     <MESSAGE value="integrated calls between array and render" />
     <MESSAGE value="bug fixes" />
     <MESSAGE value="bug fixes, moved game of life method, now functional" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug fixes, moved game of life method, now functional" />
+    <MESSAGE value="added initial keyreader build" />
+    <option name="LAST_COMMIT_MESSAGE" value="added initial keyreader build" />
   </component>
 </project>
