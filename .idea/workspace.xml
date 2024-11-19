@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e201c54d-30ed-489e-9aec-7cc267dcd7de" name="Changes" comment="added initial keyreader build">
+    <list default="true" id="e201c54d-30ed-489e-9aec-7cc267dcd7de" name="Changes" comment="code cleanup">
+      <change afterPath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/CHslCamera.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/CHslShaderObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pkgSlUtils/CHslTime.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pkgKeyReader/CHslKeyReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgKeyReader/CHslKeyReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pkgSlPolygonRenderer/CHslPolygonRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgSlPolygonRenderer/CHslPolygonRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pkgSlUtils/CHslWindowManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgSlUtils/CHslWindowManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/CHslRenderEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/CHslRenderEngine.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +30,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="minesweep" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -52,31 +58,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.CHcsc133Driver.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.csc133Driver.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CSC133 [:CSC133.Main.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CSC133.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/crhen/IdeaProjects/CSC133&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/crhen/IdeaProjects/CSC133/src/main/java/CSC133/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.CHcsc133Driver.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.csc133Driver.executor": "Run",
+    "Gradle.CSC133 [:CSC133.Main.main()].executor": "Run",
+    "Gradle.CSC133.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "minesweeper",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/crhen/IdeaProjects/CSC133",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "C:/Users/crhen/IdeaProjects/CSC133/src/main/java/CSC133/Main.java",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Application.CHcsc133Driver">
     <configuration name="CHcsc133Driver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="pkgDriver.CHcsc133Driver" />
@@ -189,7 +195,9 @@
       <workItem from="1730856480620" duration="39000" />
       <workItem from="1730856525612" duration="2909000" />
       <workItem from="1731013575985" duration="3394000" />
-      <workItem from="1731022927401" duration="4100000" />
+      <workItem from="1731022927401" duration="4526000" />
+      <workItem from="1731027511263" duration="4000" />
+      <workItem from="1732047226109" duration="3482000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit pt 2">
       <option name="closed" value="true" />
@@ -471,7 +479,23 @@
       <option name="project" value="LOCAL" />
       <updated>1731016980891</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="bug fixes, key inputs now functional">
+      <option name="closed" value="true" />
+      <created>1731027241826</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1731027241826</updated>
+    </task>
+    <task id="LOCAL-00037" summary="code cleanup">
+      <option name="closed" value="true" />
+      <created>1731027459072</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1731027459072</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -488,6 +512,17 @@
                   <entry key="Show.Git.Branches" value="true" />
                 </map>
               </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/minesweep" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
             </State>
           </value>
         </entry>
@@ -495,14 +530,12 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="made at least methods obey SRP" />
     <MESSAGE value="added new render engine methods" />
     <MESSAGE value="filled out randColors and randVertices methods" />
     <MESSAGE value="render method now properly calls random methods" />
     <MESSAGE value="render method advancements" />
     <MESSAGE value="added sleep interval" />
     <MESSAGE value="bug fixes, functional" />
-    <MESSAGE value="code cleanup" />
     <MESSAGE value="added new class, new methods" />
     <MESSAGE value="added first draft of generateVertices" />
     <MESSAGE value="first draft of generateShapes" />
@@ -520,6 +553,8 @@
     <MESSAGE value="bug fixes" />
     <MESSAGE value="bug fixes, moved game of life method, now functional" />
     <MESSAGE value="added initial keyreader build" />
-    <option name="LAST_COMMIT_MESSAGE" value="added initial keyreader build" />
+    <MESSAGE value="bug fixes, key inputs now functional" />
+    <MESSAGE value="code cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="code cleanup" />
   </component>
 </project>

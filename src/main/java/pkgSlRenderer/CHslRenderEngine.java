@@ -10,7 +10,7 @@ import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.*;
 import static pkgDriver.CHslSpot.WIN_HEIGHT;
 import static pkgDriver.CHslSpot.WIN_WIDTH;
-public abstract class CHslRenderEngine {
+public class CHslRenderEngine {
     private final int NUM_RGBA = 4;
     private final int NUM_3D_COORDS = 3;
     private final int TRIANGLES_PER_CIRCLE = 40;
