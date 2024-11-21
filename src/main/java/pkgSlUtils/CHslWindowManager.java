@@ -50,7 +50,6 @@ public class CHslWindowManager {
         if (my_win == NULL) {
             throw new RuntimeException("Failed to create the GLFW window");
         }  //  if (window == NULL)
-        glfwSetKeyCallback(my_win, keyCallback);
         updateContextToThis();
         GL.createCapabilities();
         glfwDefaultWindowHints();

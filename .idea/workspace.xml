@@ -4,12 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e201c54d-30ed-489e-9aec-7cc267dcd7de" name="Changes" comment="code cleanup">
-      <change afterPath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/CHslCamera.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/CHslShaderObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pkgSlUtils/CHslTime.java" afterDir="false" />
+    <list default="true" id="e201c54d-30ed-489e-9aec-7cc267dcd7de" name="Changes" comment="added camera class">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/shaders/default.glsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/shaders/fs_0.glsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/shaders/fs_1.glsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/shaders/fs_texture_1.glsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/shaders/vs_0.glsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/shaders/vs_1.glsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/shaders/vs_texture_1.glsl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/CHslRenderEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/CHslRenderEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/CHslShaderObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/CHslShaderObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pkgSlUtils/CHslWindowManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgSlUtils/CHslWindowManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,31 +65,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.CHcsc133Driver.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.csc133Driver.executor": "Run",
-    "Gradle.CSC133 [:CSC133.Main.main()].executor": "Run",
-    "Gradle.CSC133.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "minesweeper",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/crhen/IdeaProjects/CSC133",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "C:/Users/crhen/IdeaProjects/CSC133/src/main/java/CSC133/Main.java",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.CHcsc133Driver.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.csc133Driver.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CSC133 [:CSC133.Main.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CSC133.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;minesweeper&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/crhen/Downloads/assets/assets/shaders/default.glsl&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/crhen/IdeaProjects/CSC133/src/main/java/CSC133/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\crhen\IdeaProjects\CSC133\assets\shaders" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.CHcsc133Driver">
     <configuration name="CHcsc133Driver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="pkgDriver.CHcsc133Driver" />
@@ -197,7 +210,10 @@
       <workItem from="1731013575985" duration="3394000" />
       <workItem from="1731022927401" duration="4526000" />
       <workItem from="1731027511263" duration="4000" />
-      <workItem from="1732047226109" duration="3482000" />
+      <workItem from="1732047226109" duration="4120000" />
+      <workItem from="1732070045866" duration="1332000" />
+      <workItem from="1732140762112" duration="714000" />
+      <workItem from="1732223317931" duration="983000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit pt 2">
       <option name="closed" value="true" />
@@ -495,7 +511,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731027459072</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="added camera class">
+      <option name="closed" value="true" />
+      <created>1732056009104</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1732056009104</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -530,7 +554,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added new render engine methods" />
     <MESSAGE value="filled out randColors and randVertices methods" />
     <MESSAGE value="render method now properly calls random methods" />
     <MESSAGE value="render method advancements" />
@@ -555,6 +578,7 @@
     <MESSAGE value="added initial keyreader build" />
     <MESSAGE value="bug fixes, key inputs now functional" />
     <MESSAGE value="code cleanup" />
-    <option name="LAST_COMMIT_MESSAGE" value="code cleanup" />
+    <MESSAGE value="added camera class" />
+    <option name="LAST_COMMIT_MESSAGE" value="added camera class" />
   </component>
 </project>
