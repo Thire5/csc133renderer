@@ -27,6 +27,7 @@ public class CHslRenderEngine {
     private float[] rand_colors = new float[NUM_RGBA];
     Random myRand = new Random();
     private CHslWindowManager my_wm = new CHslWindowManager();
+    private CHslShaderObject my_shader = new CHslShaderObject();
     private float[] rand_coords = new float[NUM_3D_COORDS];
     private float[] vertex_one = new float[NUM_3D_COORDS];
     private float[] vertex_two = new float[NUM_3D_COORDS];
@@ -74,11 +75,11 @@ public class CHslRenderEngine {
             glfwPollEvents();
             glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
             glClear(GL_COLOR_BUFFER_BIT);
-            shaderObj0.loadMatrix4f("uProjMatrix", camera.getProjectionMatrix());
-            shaderObj0.loadMatrix4f("uViewMatrix", camera.getViewMatrix());
+            my_shader.loadMatrix4f("uProjMatrix", camera.getProjectionMatrix());
+            my_shader.loadMatrix4f("uViewMatrix", camera.getViewMatrix());
             for(int row = 0; row < ROWS; row++) {
                 for(int col = 0; col < COLS; col++) {
-                    shaderObj0.loadVector4f("COLOR_FACTOR", COLOR_FACTOR);
+                    my_shader.loadVector4f("COLOR_FACTOR", COLOR_FACTOR);
                     renderTile(row, col);
                 }
             }

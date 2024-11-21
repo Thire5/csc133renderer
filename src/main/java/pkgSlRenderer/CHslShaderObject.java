@@ -25,4 +25,16 @@ public class CHslShaderObject {
         my_vec4.get(vec4Buffer);
         glUniform4fv(var_location, vec4Buffer);
     } // public void loadVec4f(...)
+    public static void constructor() {
+        int shaderProgram = glCreateProgram();
+        int vertexShader = glCreateShader(GL_VERTEX_SHADER);
+        glShaderSource(vertexShader, "vs_1.glsl");
+        glCompileShader(vertexShader);
+        glAttachShader(shaderProgram, vertexShader);
+        int fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
+        glShaderSource(fragmentShader, "fs_1.glsl");
+        glCompileShader(fragmentShader);
+        glAttachShader(shaderProgram, fragmentShader);
+        glLinkProgram(shaderProgram);
+    }
 }
