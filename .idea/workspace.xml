@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e201c54d-30ed-489e-9aec-7cc267dcd7de" name="Changes" comment="shader object initial build">
+    <list default="true" id="e201c54d-30ed-489e-9aec-7cc267dcd7de" name="Changes" comment="shader object changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pkgDriver/CHslSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgDriver/CHslSpot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/CHslCamera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/CHslCamera.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/CHslRenderEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/CHslRenderEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/CHslShaderObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/CHslShaderObject.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -206,7 +206,8 @@
       <workItem from="1732070045866" duration="1332000" />
       <workItem from="1732140762112" duration="714000" />
       <workItem from="1732223317931" duration="1137000" />
-      <workItem from="1732228580794" duration="3576000" />
+      <workItem from="1732228580794" duration="3698000" />
+      <workItem from="1732312524150" duration="6967000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit pt 2">
       <option name="closed" value="true" />
@@ -528,7 +529,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732229055190</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="shader object changes">
+      <option name="closed" value="true" />
+      <created>1732249445570</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1732249445570</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -563,7 +572,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="render method advancements" />
     <MESSAGE value="added sleep interval" />
     <MESSAGE value="bug fixes, functional" />
     <MESSAGE value="added new class, new methods" />
@@ -588,6 +596,7 @@
     <MESSAGE value="added camera class" />
     <MESSAGE value="added assets, render updates" />
     <MESSAGE value="shader object initial build" />
-    <option name="LAST_COMMIT_MESSAGE" value="shader object initial build" />
+    <MESSAGE value="shader object changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="shader object changes" />
   </component>
 </project>

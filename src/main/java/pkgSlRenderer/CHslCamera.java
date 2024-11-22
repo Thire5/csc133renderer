@@ -1,7 +1,7 @@
 package pkgSlRenderer;
+
 import org.joml.Matrix4f;
 import org.joml.Vector3f;
-import org.lwjgl.opengl.*;
 
 import static pkgDriver.CHslSpot.*;
 
@@ -17,7 +17,7 @@ public class CHslCamera {
         float screen_bottom = 0.0f;
         float screen_left = 0.0f;
         float screen_right = (float) WIN_WIDTH;
-        projectionMatrix.ortho(screen_left, screen_right, screen_bottom, screen_top, 0f, 100f);
+        projectionMatrix.ortho(screen_left, screen_right, screen_bottom, screen_top, Z_NEAR, Z_FAR);
         return projectionMatrix;
     }
     public Matrix4f getViewMatrix() {
