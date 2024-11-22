@@ -27,7 +27,7 @@ public class CHslRenderEngine {
     private float[] rand_colors = new float[NUM_RGBA];
     Random myRand = new Random();
     private CHslWindowManager my_wm = new CHslWindowManager();
-    private CHslShaderObject my_shader = new CHslShaderObject();
+    private CHslShaderObject my_shader;
     private float[] rand_coords = new float[NUM_3D_COORDS];
     private float[] vertex_one = new float[NUM_3D_COORDS];
     private float[] vertex_two = new float[NUM_3D_COORDS];
@@ -65,6 +65,11 @@ public class CHslRenderEngine {
         vertex_two[0] = x;
         vertex_two[1] = y;
         vertex_two[2] = z;
+    }
+    public void initRender() {
+        my_shader = new CHslShaderObject();
+        my_shader.compile_shader();
+        my_shader.set_shader_program();
     }
     public void renderBoard() {
         CHslCamera camera = new CHslCamera();
@@ -141,8 +146,8 @@ public class CHslRenderEngine {
         GL.createCapabilities();
         float CC_RED = 0.0f, CC_GREEN = 0.0f, CC_BLUE = 1.0f, CC_ALPHA = 1.0f;
         glClearColor(CC_RED, CC_GREEN, CC_BLUE, CC_ALPHA);
-        String vsString = file_read(fs_1.glsl);
-        String fsString = file_read(vs_1.glsl);
+        String vsString = file_read("fs_1.glsl");
+        String fsString = file_read("vs_1.glsl");
         int vso = glCreateShader(GL_VERTEX_SHADER);
         glShaderSource(vso, vsString);
         glCompileShader(vso);

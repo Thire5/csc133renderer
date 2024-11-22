@@ -3,6 +3,8 @@ import org.joml.Matrix4f;
 import org.joml.Vector3f;
 import org.lwjgl.opengl.*;
 
+import static pkgDriver.CHslSpot.*;
+
 public class CHslCamera {
     private Vector3f lf;
     private Vector3f la;
@@ -11,10 +13,10 @@ public class CHslCamera {
     public Matrix4f getProjectionMatrix() {
         Matrix4f projectionMatrix = new Matrix4f();
         projectionMatrix.identity();
-        float screen_top = 1.0f;
-        float screen_bottom = -1.0f;
-        float screen_left = -1.0f;
-        float screen_right = 1.0f;
+        float screen_top = (float) WIN_HEIGHT;
+        float screen_bottom = 0.0f;
+        float screen_left = 0.0f;
+        float screen_right = (float) WIN_WIDTH;
         projectionMatrix.ortho(screen_left, screen_right, screen_bottom, screen_top, 0f, 100f);
         return projectionMatrix;
     }

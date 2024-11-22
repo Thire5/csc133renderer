@@ -10,7 +10,8 @@ import static org.lwjgl.opengl.GL20.*;
 
 public class CHslShaderObject {
     private static final int OGL_VEC4_SIZE = 5;
-    private int csProgram = 5;
+    private int csProgram;
+    private int shaderProgram;
 
     public void loadMatrix4f(String strMatrixName, Matrix4f my_mat4) {
         int var_location = glGetUniformLocation(csProgram, strMatrixName);
@@ -25,8 +26,8 @@ public class CHslShaderObject {
         my_vec4.get(vec4Buffer);
         glUniform4fv(var_location, vec4Buffer);
     } // public void loadVec4f(...)
-    public static void constructor() {
-        int shaderProgram = glCreateProgram();
+    public void compile_shader() {
+        shaderProgram = glCreateProgram();
         int vertexShader = glCreateShader(GL_VERTEX_SHADER);
         glShaderSource(vertexShader, "vs_1.glsl");
         glCompileShader(vertexShader);
@@ -36,5 +37,8 @@ public class CHslShaderObject {
         glCompileShader(fragmentShader);
         glAttachShader(shaderProgram, fragmentShader);
         glLinkProgram(shaderProgram);
+    }
+    public void set_shader_program() {
+        glUseProgram(shaderProgram);
     }
 }
