@@ -6,18 +6,14 @@ import org.joml.Vector3f;
 import static pkgDriver.CHslSpot.*;
 
 public class CHslCamera {
-    private Vector3f lf;
-    private Vector3f la;
-    private Vector3f up;
+    private Vector3f lf = new Vector3f(0f, 0f, 100f);;
+    private Vector3f la = new Vector3f(0f, 0f, -1.0f);;
+    private Vector3f up = new Vector3f(0f, 1.0f, 0f);;
 
     public Matrix4f getProjectionMatrix() {
         Matrix4f projectionMatrix = new Matrix4f();
         projectionMatrix.identity();
-        float screen_top = (float) WIN_HEIGHT;
-        float screen_bottom = 0.0f;
-        float screen_left = 0.0f;
-        float screen_right = (float) WIN_WIDTH;
-        projectionMatrix.ortho(screen_left, screen_right, screen_bottom, screen_top, Z_NEAR, Z_FAR);
+        projectionMatrix.ortho(FRUSTUM_LEFT, FRUSTUM_RIGHT, FRUSTUM_BOTTOM, FRUSTUM_TOP, Z_NEAR, Z_FAR);
         return projectionMatrix;
     }
     public Matrix4f getViewMatrix() {
@@ -25,10 +21,5 @@ public class CHslCamera {
         viewMatrix.identity();
         viewMatrix.lookAt(lf, la.add(lf), up);
         return viewMatrix;
-    }
-    public void create() {
-        lf = new Vector3f(0f, 0f, 100f);
-        la = new Vector3f(0f, 0f, -1.0f);
-        up = new Vector3f(0f, 1.0f, 0f);
     }
 }
