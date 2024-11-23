@@ -7,5 +7,5 @@ out vec4 color;
 
 void main()
 {
-    color = COLOR_FACTOR ;
+    color = COLOR_FACTOR;
 }

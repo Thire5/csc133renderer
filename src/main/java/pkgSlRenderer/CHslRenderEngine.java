@@ -1,13 +1,10 @@
 package pkgSlRenderer;
 
-import org.joml.Vector2i;
 import org.joml.Vector4f;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.GL;
 import pkgSlUtils.CHslWindowManager;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
@@ -36,32 +33,42 @@ public class CHslRenderEngine {
     private final float uMin = 0.0f;
     private final float uMax = 1.0f;
     private FloatBuffer myFB;
-    private float[] my_v = new float[NUM_POLY_ROWS*NUM_POLY_COLS*FPP];
+    private float[] my_v = new float[NUM_POLY_ROWS*NUM_POLY_COLS*FPP*VPT];
     private void fill_vertex_array() {
+        int index = 0;
         for (int row = 0; row < NUM_POLY_ROWS; row++) {
             for (int col = 0; col < NUM_POLY_COLS; col++) {
-                my_v[((row*col+col) * VPT)] = (POLY_OFFSET+(POLYGON_LENGTH*POLY_PADDING*col));
-                my_v[((row*col+col) * VPT)+1] = (POLY_OFFSET+POLYGON_LENGTH+(POLYGON_LENGTH*POLY_PADDING*row));
-                my_v[((row*col+col) * VPT)+2] = z;
-                my_v[((row*col+col) * VPT)+3] = uMin;
-                my_v[((row*col+col) * VPT)+4] = uMax;
-                my_v[((row*col+col) * VPT)+5] = (POLY_OFFSET+(POLYGON_LENGTH*POLY_PADDING*col));
-                my_v[((row*col+col) * VPT)+6] = (POLY_OFFSET+(POLYGON_LENGTH*POLY_PADDING*row));
-                my_v[((row*col+col) * VPT)+7] = z;
-                my_v[((row*col+col) * VPT)+8] = uMin;
-                my_v[((row*col+col) * VPT)+9] = uMax;
-                my_v[((row*col+col) * VPT)+10] = (POLY_OFFSET+POLYGON_LENGTH+(POLYGON_LENGTH*POLY_PADDING*col));
-                my_v[((row*col+col) * VPT)+11] = (POLY_OFFSET+(POLYGON_LENGTH*POLY_PADDING*row));
-                my_v[((row*col+col) * VPT)+12] = z;
-                my_v[((row*col+col) * VPT)+13] = uMin;
-                my_v[((row*col+col) * VPT)+14] = uMax;
-                my_v[((row*col+col) * VPT)+15] = (POLY_OFFSET+POLYGON_LENGTH+(POLYGON_LENGTH*POLY_PADDING*col));
-                my_v[((row*col+col) * VPT)+16] = (POLY_OFFSET+POLYGON_LENGTH+(POLYGON_LENGTH*POLY_PADDING*row));
-                my_v[((row*col+col) * VPT)+17] = z;
-                my_v[((row*col+col) * VPT)+18] = uMin;
-                my_v[((row*col+col) * VPT)+19] = uMax;
+                float x = POLY_OFFSET + ((POLYGON_LENGTH + POLY_PADDING) * col);
+                float y = POLY_OFFSET + ((POLYGON_LENGTH + POLY_PADDING) * row);
+
+                // Define each vertex's position and texture coordinates
+                my_v[index++] = x;                  // Vertex 1 position X
+                my_v[index++] = y;                  // Vertex 1 position Y
+                my_v[index++] = z;                  // Vertex 1 position Z
+                my_v[index++] = uMin;               // Texture coordinate U
+                my_v[index++] = uMax;               // Texture coordinate V
+
+                my_v[index++] = x;                  // Vertex 2 position X
+                my_v[index++] = y + POLYGON_LENGTH; // Vertex 2 position Y
+                my_v[index++] = z;                  // Vertex 2 position Z
+                my_v[index++] = uMin;               // Texture coordinate U
+                my_v[index++] = uMax;               // Texture coordinate V
+
+                my_v[index++] = x + POLYGON_LENGTH; // Vertex 3 position X
+                my_v[index++] = y + POLYGON_LENGTH; // Vertex 3 position Y
+                my_v[index++] = z;                  // Vertex 3 position Z
+                my_v[index++] = uMin;               // Texture coordinate U
+                my_v[index++] = uMax;               // Texture coordinate V
+
+                my_v[index++] = x + POLYGON_LENGTH; // Vertex 4 position X
+                my_v[index++] = y;                  // Vertex 4 position Y
+                my_v[index++] = z;                  // Vertex 4 position Z
+                my_v[index++] = uMin;               // Texture coordinate U
+                my_v[index++] = uMax;               // Texture coordinate V
             }
         }
+        System.out.println(WIN_HEIGHT);
+        System.out.println(WIN_WIDTH);
         myFB = BufferUtils.createFloatBuffer(my_v.length);
         myFB.put(my_v).flip();
     }
@@ -69,35 +76,39 @@ public class CHslRenderEngine {
         fill_vertex_array();
         int vaoID = glGenVertexArrays();
         glBindVertexArray(vaoID);
+
         int vboID = glGenBuffers();
         glBindBuffer(GL_ARRAY_BUFFER, vboID);
         glBufferData(GL_ARRAY_BUFFER, myFB, GL_STATIC_DRAW);
-        int loc0 = 0;
-        int loc1 = 1;
-        glVertexAttribPointer(loc0, positionStride, GL_FLOAT, false, vertexStride, 0);
-        glVertexAttribPointer(loc1, positionStride, GL_FLOAT, false, vertexStride, 12);
-        glEnableVertexAttribArray(loc0);
+
+        glVertexAttribPointer(0, positionStride, GL_FLOAT, false, vertexStride, 0);
+        glEnableVertexAttribArray(0);
+        glVertexAttribPointer(1, positionStride, GL_FLOAT, false, vertexStride, 12);
+        glEnableVertexAttribArray(12);
+
         my_shader = new CHslShaderObject();
         my_shader.compile_shader();
+        System.out.println("set shader");
         my_shader.set_shader_program();
     }
     public void renderBoard() {
         CHslCamera camera = new CHslCamera();
-        float green = 1.0f;
-        Vector4f COLOR_FACTOR = new Vector4f(0.2f, 0.9f, 0.8f, 1.0f);
-        Vector2i rcVec = new Vector2i(-1, -1);
-        while(!my_wm.isGlfwWindowClosed()) {
+        Vector4f COLOR_FACTOR = new Vector4f(0.8f, 0.0f, 0.2f, 1.0f);
+        initRender();
+        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+        my_shader.loadMatrix4f("uProjMatrix", camera.getProjectionMatrix());
+        my_shader.loadMatrix4f("uViewMatrix", camera.getViewMatrix());
+        my_shader.loadVector4f("COLOR_FACTOR", COLOR_FACTOR);
+        while (!my_wm.isGlfwWindowClosed()) {
+            //initRender();
             glfwPollEvents();
-            glClearColor(0.0f, 0.0f, 0.3f, 1.0f);
             glClear(GL_COLOR_BUFFER_BIT);
-            my_shader.loadMatrix4f("uProjMatrix", camera.getProjectionMatrix());
-            my_shader.loadMatrix4f("uViewMatrix", camera.getViewMatrix());
-            for(int row = 0; row < NUM_POLY_ROWS; row++) {
-                for(int col = 0; col < NUM_POLY_COLS; col++) {
-                    my_shader.loadVector4f("COLOR_FACTOR", COLOR_FACTOR);
+            for (int row = 0; row < NUM_POLY_ROWS; row++) {
+                for (int col = 0; col < NUM_POLY_COLS; col++) {
                     renderTile(row, col);
                 }
             }
+
             my_wm.swapBuffers();
         }
     }
@@ -106,8 +117,8 @@ public class CHslRenderEngine {
     }
     private void renderTile(int row, int col) {
         int va_offset = getVAVIndex(row, col); // vertex array offset of tile
-        int[] rgVertexIndices = new int[] {va_offset, va_offset+1, va_offset+2,
-                va_offset, va_offset+2, va_offset+3};
+        int[] rgVertexIndices = new int[] {va_offset, va_offset+(FPP), va_offset+(2*FPP),
+                va_offset, va_offset+(2*FPP), va_offset+(3*FPP)};
         IntBuffer VertexIndicesBuffer = BufferUtils.createIntBuffer(rgVertexIndices.length);
         VertexIndicesBuffer.put(rgVertexIndices).flip();
         int eboID = glGenBuffers();
@@ -120,32 +131,36 @@ public class CHslRenderEngine {
         my_wm.updateContextToThis();
 
         GL.createCapabilities();
-        float CC_RED = 0.0f, CC_GREEN = 0.0f, CC_BLUE = 1.0f, CC_ALPHA = 1.0f;
+        float CC_RED = 0.0f, CC_GREEN = 0.0f, CC_BLUE = 0.0f, CC_ALPHA = 1.0f;
         glClearColor(CC_RED, CC_GREEN, CC_BLUE, CC_ALPHA);
-        String vsString = Files.readString(Path.of("fs_1.glsl"));
-        String fsString = Files.readString(Path.of("vs_1.glsl"));
-        int vso = glCreateShader(GL_VERTEX_SHADER);
-        glShaderSource(vso, vsString);
-        glCompileShader(vso);
-        int fso = glCreateShader(GL_FRAGMENT_SHADER);
-        glShaderSource(fso, fsString);
-        glCompileShader(fso);
+        createShaderProgram("assets/shaders/vs_texture_1.glsl", "assets/shaders/fs_texture_1.glsl");
         int vao = glGenVertexArrays();
         glBindVertexArray(vao);
         int vbo = glGenBuffers();
         glBindBuffer(GL_ARRAY_BUFFER, vbo);
     }
 
-    private String file_read(String fileName) throws IOException {
-        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
-            String line = null;
-            StringBuilder sb = new StringBuilder();
-            String ls = System.lineSeparator();
-            while ((line = br.readLine()) != null) {
-                sb.append(line);
-                sb.append(ls);
-            }
-            return sb.toString();
+    private int compileShader(String filePath, int shaderType) throws IOException {
+        String shaderSource = new String(Files.readAllBytes(Path.of(filePath)));
+        int shader = glCreateShader(shaderType);
+        glShaderSource(shader, shaderSource);
+        glCompileShader(shader);
+        if (glGetShaderi(shader, GL_COMPILE_STATUS) == GL_FALSE) {
+            throw new RuntimeException("Shader compilation failed: " + glGetShaderInfoLog(shader));
         }
+        return shader;
+    }
+    private int createShaderProgram(String vertexShaderPath, String fragmentShaderPath) throws IOException {
+        int vertexShader = compileShader(vertexShaderPath, GL_VERTEX_SHADER);
+        int fragmentShader = compileShader(fragmentShaderPath, GL_FRAGMENT_SHADER);
+
+        int program = glCreateProgram();
+        glAttachShader(program, vertexShader);
+        glAttachShader(program, fragmentShader);
+        glLinkProgram(program);
+        if (glGetProgrami(program, GL_LINK_STATUS) == GL_FALSE) {
+            throw new RuntimeException("Shader program linking failed: " + glGetProgramInfoLog(program));
+        }
+        return program;
     }
 }

@@ -58,5 +58,6 @@ public class CHslWindowManager {
         glfwWindowHint(GLFW_MAXIMIZED, GLFW_FALSE);
         float CC_RED = 0.0f, CC_GREEN = 0.0f, CC_BLUE = 1.0f, CC_ALPHA = 1.0f;
         glClearColor(CC_RED, CC_GREEN, CC_BLUE, CC_ALPHA);
+
     }
 }  // public class Main

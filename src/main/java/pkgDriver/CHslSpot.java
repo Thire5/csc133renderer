@@ -3,7 +3,7 @@ package pkgDriver;
 public class CHslSpot {
     public static String WINDOW_TITLE = "CSC 133: Click & Kill Time!";
     public static int POLY_OFFSET = 40, POLYGON_LENGTH = 100, POLY_PADDING = 40;
-    public static int NUM_POLY_ROWS = 9, NUM_POLY_COLS = 6;
+    public static int NUM_POLY_ROWS = 10, NUM_POLY_COLS = 10;
 
     public static int WIN_WIDTH =
             2*POLY_OFFSET + (NUM_POLY_COLS-1)*POLY_PADDING + NUM_POLY_COLS*POLYGON_LENGTH;

@@ -4,11 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e201c54d-30ed-489e-9aec-7cc267dcd7de" name="Changes" comment="render class updates, spot updates">
+    <list default="true" id="e201c54d-30ed-489e-9aec-7cc267dcd7de" name="Changes" comment="code cleanup, though still nothing works">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/shaders/fs_texture_1.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/assets/shaders/fs_texture_1.glsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/shaders/vs_texture_1.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/assets/shaders/vs_texture_1.glsl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pkgDriver/CHcsc133Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgDriver/CHcsc133Driver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pkgDriver/CHslSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgDriver/CHslSpot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/CHslCamera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/CHslCamera.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/CHslRenderEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/CHslRenderEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/CHslShaderObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/CHslShaderObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pkgSlUtils/CHslTime.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pkgSlUtils/CHslWindowManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgSlUtils/CHslWindowManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +54,9 @@
     &quot;accountId&quot;: &quot;ca8f8ebf-40e5-40f8-b5ad-8553e134a6cb&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -83,6 +92,23 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="QodanaHighlightedReportService">
+    <option name="localRunNotPublishedPersistedInfo">
+      <LocalReportPersistedInfo>
+        <option name="path" value="C:\Users\crhen\AppData\Local\Temp\qodana_output\qodana.sarif.json" />
+        <option name="reportGuid" value="189fdb06-af7e-4dd2-bd47-0716c282cbbb" />
+        <option name="reportName" value="CSC133/qodana/2024-11-22" />
+      </LocalReportPersistedInfo>
+    </option>
+  </component>
+  <component name="QodanaIsSelectedPersistenceService">
+    <option name="selectedOrLoading" value="true" />
+  </component>
+  <component name="QodanaReportsService">
+    <option name="descriptions">
+      <ReportDescription localRun="true" path="C:\Users\crhen\AppData\Local\Temp\qodana_output\qodana.sarif.json" reportGuid="189fdb06-af7e-4dd2-bd47-0716c282cbbb" reportId="CSC133/qodana/2024-11-22" />
+    </option>
+  </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\crhen\IdeaProjects\CSC133\assets\shaders" />
@@ -207,7 +233,7 @@
       <workItem from="1732140762112" duration="714000" />
       <workItem from="1732223317931" duration="1137000" />
       <workItem from="1732228580794" duration="3698000" />
-      <workItem from="1732312524150" duration="9872000" />
+      <workItem from="1732312524150" duration="21850000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit pt 2">
       <option name="closed" value="true" />
@@ -545,7 +571,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732319885607</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="code cleanup, though still nothing works">
+      <option name="closed" value="true" />
+      <created>1732323110310</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1732323110310</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -580,7 +614,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="bug fixes, functional" />
     <MESSAGE value="added new class, new methods" />
     <MESSAGE value="added first draft of generateVertices" />
     <MESSAGE value="first draft of generateShapes" />
@@ -605,6 +638,7 @@
     <MESSAGE value="shader object initial build" />
     <MESSAGE value="shader object changes" />
     <MESSAGE value="render class updates, spot updates" />
-    <option name="LAST_COMMIT_MESSAGE" value="render class updates, spot updates" />
+    <MESSAGE value="code cleanup, though still nothing works" />
+    <option name="LAST_COMMIT_MESSAGE" value="code cleanup, though still nothing works" />
   </component>
 </project>

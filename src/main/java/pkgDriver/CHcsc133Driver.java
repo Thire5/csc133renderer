@@ -12,7 +12,7 @@ public class CHcsc133Driver {
         CHslRenderEngine renderEngine = new CHslRenderEngine();
         CHslWindowManager.get().initGLFWWindow(WIN_WIDTH, WIN_HEIGHT, WINDOW_TITLE);
         renderEngine.initOpenGL(CHslWindowManager.get());
-        renderEngine.initRender();
+        //renderEngine.initRender();
         renderEngine.renderBoard();
     } // public static void main(String[] my_args)
 } // public class csc133Driver(...)
