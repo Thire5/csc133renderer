@@ -29,7 +29,7 @@ public class CHslRenderEngine {
     private final int VPT = 4;
     private final int FPP = 5;
     private final int positionStride = 3;
-    private final int vertexStride = 3;
+    private final int vertexStride = 5;
     private final float uMin = 0.0f;
     private final float uMax = 1.0f;
     private FloatBuffer myFB;
@@ -41,34 +41,31 @@ public class CHslRenderEngine {
                 float x = POLY_OFFSET + ((POLYGON_LENGTH + POLY_PADDING) * col);
                 float y = POLY_OFFSET + ((POLYGON_LENGTH + POLY_PADDING) * row);
 
-                // Define each vertex's position and texture coordinates
-                my_v[index++] = x;                  // Vertex 1 position X
-                my_v[index++] = y;                  // Vertex 1 position Y
-                my_v[index++] = z;                  // Vertex 1 position Z
-                my_v[index++] = uMin;               // Texture coordinate U
-                my_v[index++] = uMax;               // Texture coordinate V
+                my_v[index++] = x;
+                my_v[index++] = y;
+                my_v[index++] = z;
+                my_v[index++] = uMin;
+                my_v[index++] = uMax;
 
-                my_v[index++] = x;                  // Vertex 2 position X
-                my_v[index++] = y + POLYGON_LENGTH; // Vertex 2 position Y
-                my_v[index++] = z;                  // Vertex 2 position Z
-                my_v[index++] = uMin;               // Texture coordinate U
-                my_v[index++] = uMax;               // Texture coordinate V
+                my_v[index++] = x;
+                my_v[index++] = y + POLYGON_LENGTH;
+                my_v[index++] = z;
+                my_v[index++] = uMin;
+                my_v[index++] = uMax;
 
-                my_v[index++] = x + POLYGON_LENGTH; // Vertex 3 position X
-                my_v[index++] = y + POLYGON_LENGTH; // Vertex 3 position Y
-                my_v[index++] = z;                  // Vertex 3 position Z
-                my_v[index++] = uMin;               // Texture coordinate U
-                my_v[index++] = uMax;               // Texture coordinate V
+                my_v[index++] = x + POLYGON_LENGTH;
+                my_v[index++] = y + POLYGON_LENGTH;
+                my_v[index++] = z;
+                my_v[index++] = uMin;
+                my_v[index++] = uMax;
 
-                my_v[index++] = x + POLYGON_LENGTH; // Vertex 4 position X
-                my_v[index++] = y;                  // Vertex 4 position Y
-                my_v[index++] = z;                  // Vertex 4 position Z
-                my_v[index++] = uMin;               // Texture coordinate U
-                my_v[index++] = uMax;               // Texture coordinate V
+                my_v[index++] = x + POLYGON_LENGTH;
+                my_v[index++] = y;
+                my_v[index++] = z;
+                my_v[index++] = uMin;
+                my_v[index++] = uMax;
             }
         }
-        System.out.println(WIN_HEIGHT);
-        System.out.println(WIN_WIDTH);
         myFB = BufferUtils.createFloatBuffer(my_v.length);
         myFB.put(my_v).flip();
     }
@@ -80,27 +77,24 @@ public class CHslRenderEngine {
         int vboID = glGenBuffers();
         glBindBuffer(GL_ARRAY_BUFFER, vboID);
         glBufferData(GL_ARRAY_BUFFER, myFB, GL_STATIC_DRAW);
-
-        glVertexAttribPointer(0, positionStride, GL_FLOAT, false, vertexStride, 0);
+        int loc0 = 0, loc1 = 1;
+        glVertexAttribPointer(loc0, positionStride, GL_FLOAT, false, vertexStride * Float.BYTES, 0);
+        glVertexAttribPointer(loc1, 2, GL_FLOAT, false, vertexStride * Float.BYTES, positionStride  * Float.BYTES);
         glEnableVertexAttribArray(0);
-        glVertexAttribPointer(1, positionStride, GL_FLOAT, false, vertexStride, 12);
-        glEnableVertexAttribArray(12);
 
         my_shader = new CHslShaderObject();
         my_shader.compile_shader();
-        System.out.println("set shader");
         my_shader.set_shader_program();
     }
     public void renderBoard() {
         CHslCamera camera = new CHslCamera();
-        Vector4f COLOR_FACTOR = new Vector4f(0.8f, 0.0f, 0.2f, 1.0f);
+        Vector4f COLOR_FACTOR = new Vector4f(0.8f, 0.0f, 0.2f, opacity);
         initRender();
-        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+        glClearColor(0.0f, 0.0f, 0.0f, opacity);
         my_shader.loadMatrix4f("uProjMatrix", camera.getProjectionMatrix());
         my_shader.loadMatrix4f("uViewMatrix", camera.getViewMatrix());
         my_shader.loadVector4f("COLOR_FACTOR", COLOR_FACTOR);
         while (!my_wm.isGlfwWindowClosed()) {
-            //initRender();
             glfwPollEvents();
             glClear(GL_COLOR_BUFFER_BIT);
             for (int row = 0; row < NUM_POLY_ROWS; row++) {
@@ -108,7 +102,6 @@ public class CHslRenderEngine {
                     renderTile(row, col);
                 }
             }
-
             my_wm.swapBuffers();
         }
     }
@@ -117,8 +110,8 @@ public class CHslRenderEngine {
     }
     private void renderTile(int row, int col) {
         int va_offset = getVAVIndex(row, col); // vertex array offset of tile
-        int[] rgVertexIndices = new int[] {va_offset, va_offset+(FPP), va_offset+(2*FPP),
-                va_offset, va_offset+(2*FPP), va_offset+(3*FPP)};
+        int[] rgVertexIndices = new int[] {va_offset, va_offset+1, va_offset+2,
+                va_offset, va_offset+2, va_offset+3};
         IntBuffer VertexIndicesBuffer = BufferUtils.createIntBuffer(rgVertexIndices.length);
         VertexIndicesBuffer.put(rgVertexIndices).flip();
         int eboID = glGenBuffers();
@@ -150,7 +143,7 @@ public class CHslRenderEngine {
         }
         return shader;
     }
-    private int createShaderProgram(String vertexShaderPath, String fragmentShaderPath) throws IOException {
+    private void createShaderProgram(String vertexShaderPath, String fragmentShaderPath) throws IOException {
         int vertexShader = compileShader(vertexShaderPath, GL_VERTEX_SHADER);
         int fragmentShader = compileShader(fragmentShaderPath, GL_FRAGMENT_SHADER);
 
@@ -161,6 +154,5 @@ public class CHslRenderEngine {
         if (glGetProgrami(program, GL_LINK_STATUS) == GL_FALSE) {
             throw new RuntimeException("Shader program linking failed: " + glGetProgramInfoLog(program));
         }
-        return program;
     }
 }
