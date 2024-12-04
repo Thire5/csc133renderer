@@ -1,11 +1,11 @@
 package pkgMinesweeper;
 import pkgDriver.CHslSpot;
-public class CHslMSBoard(int rows, int cols, int mines) {
+public class CHslMSBoard {
     private int current_score;
     private Boolean game_active;
-    private int ROWS = rows;
-    private int COLS = cols;
-    private int NUM_MINES = mines;
+    private int ROWS = CHslSpot.NUM_POLY_ROWS;
+    private int COLS = CHslSpot.NUM_POLY_COLS;
+    private int NUM_MINES = CHslSpot.NUM_MINES;
     private CellData[][] ms_board = new CellData[ROWS][COLS];
     private static class CellData {
         private CHslSpot.CELL_STATUS status;

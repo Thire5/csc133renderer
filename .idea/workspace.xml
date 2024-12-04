@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e201c54d-30ed-489e-9aec-7cc267dcd7de" name="Changes" comment="bug fixes, now functional. Note some classes are currently unused, but may be reimplemented in future builds">
+    <list default="true" id="e201c54d-30ed-489e-9aec-7cc267dcd7de" name="Changes" comment="added msboard class, some changes to spot file">
+      <change afterPath="$PROJECT_DIR$/src/main/java/pkgMinesweeper/CHslMSGame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pkgMouseReader/CHslMouseListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/CHslTextureObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pkgDriver/CHslSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgDriver/CHslSpot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pkgMinesweeper/CHslMSBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgMinesweeper/CHslMSBoard.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -216,6 +221,8 @@
       <workItem from="1732312524150" duration="22120000" />
       <workItem from="1732340921650" duration="5153000" />
       <workItem from="1732346170966" duration="58000" />
+      <workItem from="1733269568125" duration="1694000" />
+      <workItem from="1733346451331" duration="758000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit pt 2">
       <option name="closed" value="true" />
@@ -577,7 +584,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732346000260</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="added msboard class, some changes to spot file">
+      <option name="closed" value="true" />
+      <created>1733271262396</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1733271262396</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -612,7 +627,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="first draft of generateShapes" />
     <MESSAGE value="driver updates" />
     <MESSAGE value="further bug fixes, now reproduces video from instructions" />
     <MESSAGE value="added overloads" />
@@ -637,6 +651,7 @@
     <MESSAGE value="code cleanup, though still nothing works" />
     <MESSAGE value="bug fixes, but behind every bug lurks another, more unfixable bug" />
     <MESSAGE value="bug fixes, now functional. Note some classes are currently unused, but may be reimplemented in future builds" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug fixes, now functional. Note some classes are currently unused, but may be reimplemented in future builds" />
+    <MESSAGE value="added msboard class, some changes to spot file" />
+    <option name="LAST_COMMIT_MESSAGE" value="added msboard class, some changes to spot file" />
   </component>
 </project>
