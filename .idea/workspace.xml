@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e201c54d-30ed-489e-9aec-7cc267dcd7de" name="Changes" comment="bug fixes, but behind every bug lurks another, more unfixable bug">
+    <list default="true" id="e201c54d-30ed-489e-9aec-7cc267dcd7de" name="Changes" comment="bug fixes, now functional. Note some classes are currently unused, but may be reimplemented in future builds">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pkgDriver/CHslSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgDriver/CHslSpot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/CHslRenderEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/CHslRenderEngine.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,33 +57,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.CHcsc133Driver.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.csc133Driver.executor": "Run",
-    "Gradle.CSC133 [:CSC133.Main.main()].executor": "Run",
-    "Gradle.CSC133.executor": "Run",
-    "Gradle.Download Sources.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "minesweeper",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/crhen/Downloads/assets/assets/shaders/default.glsl",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "C:/Users/crhen/IdeaProjects/CSC133/src/main/java/CSC133/Main.java",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.CHcsc133Driver.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.csc133Driver.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CSC133 [:CSC133.Main.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CSC133.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;minesweeper&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/crhen/Downloads/assets/assets/shaders/default.glsl&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/crhen/IdeaProjects/CSC133/src/main/java/CSC133/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="QodanaReportsService">
     <option name="descriptions">
       <ReportDescription localRun="true" path="C:\Users\crhen\AppData\Local\Temp\qodana_output\qodana.sarif.json" reportGuid="189fdb06-af7e-4dd2-bd47-0716c282cbbb" reportId="CSC133/qodana/2024-11-22" />
@@ -216,7 +214,8 @@
       <workItem from="1732223317931" duration="1137000" />
       <workItem from="1732228580794" duration="3698000" />
       <workItem from="1732312524150" duration="22120000" />
-      <workItem from="1732340921650" duration="4933000" />
+      <workItem from="1732340921650" duration="5153000" />
+      <workItem from="1732346170966" duration="58000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit pt 2">
       <option name="closed" value="true" />
@@ -570,7 +569,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732335171976</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="bug fixes, now functional. Note some classes are currently unused, but may be reimplemented in future builds">
+      <option name="closed" value="true" />
+      <created>1732346000260</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1732346000260</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -605,7 +612,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added first draft of generateVertices" />
     <MESSAGE value="first draft of generateShapes" />
     <MESSAGE value="driver updates" />
     <MESSAGE value="further bug fixes, now reproduces video from instructions" />
@@ -630,6 +636,7 @@
     <MESSAGE value="render class updates, spot updates" />
     <MESSAGE value="code cleanup, though still nothing works" />
     <MESSAGE value="bug fixes, but behind every bug lurks another, more unfixable bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug fixes, but behind every bug lurks another, more unfixable bug" />
+    <MESSAGE value="bug fixes, now functional. Note some classes are currently unused, but may be reimplemented in future builds" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug fixes, now functional. Note some classes are currently unused, but may be reimplemented in future builds" />
   </component>
 </project>
