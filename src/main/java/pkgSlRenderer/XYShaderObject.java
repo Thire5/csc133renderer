@@ -11,7 +11,7 @@ import java.nio.file.Paths;
 
 import static org.lwjgl.opengl.GL20.*;
 
-public class CHslShaderObject {
+public class XYShaderObject {
     private static final int OGL_VEC4_SIZE = 4;
     private int shaderProgram;
 

@@ -1,33 +1,41 @@
 package pkgMinesweeper;
-import pkgDriver.CHslSpot;
+import pkgDriver.CHSpot;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Collections;
-public class CHslMSBoard {
+public class CHMSBoard {
     private int current_score;
     private Boolean game_active;
-    private int ROWS = CHslSpot.NUM_POLY_ROWS;
-    private int COLS = CHslSpot.NUM_POLY_COLS;
-    private int NUM_MINES = CHslSpot.NUM_MINES;
-    private CellData[][] ms_board = new CellData[ROWS][COLS];
+    private int ROWS = CHSpot.NUM_POLY_ROWS;
+    private int COLS = CHSpot.NUM_POLY_COLS;
+    private int NUM_MINES = CHSpot.NUM_MINES;
+    private CellData[][] ms_board;
     private final int SCORE_PER_MINE = 5;
     private final int SCORE_PER_GOLD = 40;
     private static class CellData {
-        private CHslSpot.CELL_STATUS status;
-        private CHslSpot.CELL_TYPE type;
+        private CHSpot.CELL_STATUS status;
+        private CHSpot.CELL_TYPE type;
         private int cell_score;
     }
     public void fill() {
+        ms_board = new CellData[ROWS][COLS];
+        for (int row = 0; row < ROWS; row++) {
+            for (int col = 0; col < COLS; col++) {
+                ms_board[row][col] = new CellData();
+            }
+        }
         int mine = 0;
         for (int row = 0; row < ROWS; row++) {
             for (int col = 0; col < COLS; col++) {
                 if (mine < NUM_MINES) {
-                    ms_board[row][col].type = CHslSpot.CELL_TYPE.MINE;
+                    ms_board[row][col].type = CHSpot.CELL_TYPE.MINE;
                 }
                 if (mine >= NUM_MINES) {
-                    ms_board[row][col].type = CHslSpot.CELL_TYPE.GOLD;
+                    ms_board[row][col].type = CHSpot.CELL_TYPE.GOLD;
                 }
-                ms_board[row][col].status = CHslSpot.CELL_STATUS.NOT_EXPOSED;
+                ms_board[row][col].status = CHSpot.CELL_STATUS.NOT_EXPOSED;
                 mine++;
             }
         }
@@ -36,7 +44,10 @@ public class CHslMSBoard {
                 ms_board[row][col].cell_score = calcScore(row, col);
             }
         }
-        List<CellData> cells = (List<CellData>) Arrays.asList(ms_board);
+        List<CellData> cells = new ArrayList<>();
+        for(int row = 0; row < ROWS; row++) {
+            cells.addAll(Arrays.asList(ms_board[row]).subList(0, COLS));
+        }
         Collections.shuffle(cells);
         for (int row = 0; row < ROWS; row++) {
             for (int col = 0; col < COLS; col++) {
@@ -46,9 +57,9 @@ public class CHslMSBoard {
         game_active = true;
     }
     public void gameStep(int row, int col) {
-        ms_board[row][col].status = CHslSpot.CELL_STATUS.EXPOSED;
+        ms_board[row][col].status = CHSpot.CELL_STATUS.EXPOSED;
         current_score += ms_board[row][col].cell_score;
-        if(ms_board[row][col].type == CHslSpot.CELL_TYPE.MINE) {
+        if(ms_board[row][col].type == CHSpot.CELL_TYPE.MINE) {
             game_active = false;
         }
     }
@@ -58,34 +69,34 @@ public class CHslMSBoard {
         int nextCol = (col + 1) % COLS;
         int prevRow = (row - 1 + ROWS) % ROWS;
         int prevCol = (col - 1 + COLS) % COLS;
-        if(ms_board[row][col].type == CHslSpot.CELL_TYPE.MINE) {
+        if(ms_board[row][col].type == CHSpot.CELL_TYPE.MINE) {
             return score;
         }
-        if(ms_board[row][col].type == CHslSpot.CELL_TYPE.GOLD) {
+        if(ms_board[row][col].type == CHSpot.CELL_TYPE.GOLD) {
             score += SCORE_PER_GOLD;
         }
-        if(ms_board[prevRow][prevCol].type == CHslSpot.CELL_TYPE.MINE) {
+        if(ms_board[prevRow][prevCol].type == CHSpot.CELL_TYPE.MINE) {
             score += SCORE_PER_MINE;
         }
-        if(ms_board[prevRow][col].type == CHslSpot.CELL_TYPE.MINE) {
+        if(ms_board[prevRow][col].type == CHSpot.CELL_TYPE.MINE) {
             score += SCORE_PER_MINE;
         }
-        if(ms_board[prevRow][nextCol].type == CHslSpot.CELL_TYPE.MINE) {
+        if(ms_board[prevRow][nextCol].type == CHSpot.CELL_TYPE.MINE) {
             score += SCORE_PER_MINE;
         }
-        if(ms_board[row][prevCol].type == CHslSpot.CELL_TYPE.MINE) {
+        if(ms_board[row][prevCol].type == CHSpot.CELL_TYPE.MINE) {
             score += SCORE_PER_MINE;
         }
-        if(ms_board[row][nextCol].type == CHslSpot.CELL_TYPE.MINE) {
+        if(ms_board[row][nextCol].type == CHSpot.CELL_TYPE.MINE) {
             score += SCORE_PER_MINE;
         }
-        if(ms_board[nextRow][prevCol].type == CHslSpot.CELL_TYPE.MINE) {
+        if(ms_board[nextRow][prevCol].type == CHSpot.CELL_TYPE.MINE) {
             score += SCORE_PER_MINE;
         }
-        if(ms_board[nextRow][col].type == CHslSpot.CELL_TYPE.MINE) {
+        if(ms_board[nextRow][col].type == CHSpot.CELL_TYPE.MINE) {
             score += SCORE_PER_MINE;
         }
-        if(ms_board[nextRow][nextCol].type == CHslSpot.CELL_TYPE.MINE) {
+        if(ms_board[nextRow][nextCol].type == CHSpot.CELL_TYPE.MINE) {
             score += SCORE_PER_MINE;
         }
         return score;
@@ -109,14 +120,14 @@ public class CHslMSBoard {
             System.out.println();
         }
     }
-    public CHslSpot.CELL_STATUS getCellStatus(int row, int col) {
+    public CHSpot.CELL_STATUS getCellStatus(int row, int col) {
         return ms_board[row][col].status;
     }
-    public CHslSpot.CELL_TYPE getCellType(int row, int col) {
+    public CHSpot.CELL_TYPE getCellType(int row, int col) {
         return ms_board[row][col].type;
     }
-    public CHslSpot.CELL_TYPE changeCellStatus(int row, int col) {
-        ms_board[row][col].status = CHslSpot.CELL_STATUS.EXPOSED;
+    public CHSpot.CELL_TYPE changeCellStatus(int row, int col) {
+        ms_board[row][col].status = CHSpot.CELL_STATUS.EXPOSED;
         return ms_board[row][col].type;
     }
     public int getCurrentScore() {

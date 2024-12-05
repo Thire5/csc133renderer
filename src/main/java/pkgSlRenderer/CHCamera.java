@@ -3,9 +3,9 @@ package pkgSlRenderer;
 import org.joml.Matrix4f;
 import org.joml.Vector3f;
 
-import static pkgDriver.CHslSpot.*;
+import static pkgDriver.CHSpot.*;
 
-public class CHslCamera {
+public class CHCamera {
     private Vector3f lf = new Vector3f(0f, 0f, 100f);
     private Vector3f la = new Vector3f(0f, 0f, -1.0f);
     private Vector3f up = new Vector3f(0f, 1.0f, 0f);

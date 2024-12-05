@@ -3,7 +3,9 @@ package pkgSlRenderer;
 import org.joml.Vector4f;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.GL;
-import pkgMinesweeper.CHslMSBoard;
+import pkgDriver.CHSpot;
+import pkgMinesweeper.CHMSBoard;
+import pkgMouseReader.XYMouseListener;
 import pkgSlUtils.CHslWindowManager;
 
 import java.io.IOException;
@@ -19,12 +21,12 @@ import static org.lwjgl.opengl.ARBVertexArrayObject.glGenVertexArrays;
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.opengl.GL15.*;
 import static org.lwjgl.opengl.GL20.*;
-import static pkgDriver.CHslSpot.*;
+import static pkgDriver.CHSpot.*;
 
-public class CHslRenderEngine {
+public class CHRenderEngine {
     Random myRand = new Random();
     private CHslWindowManager my_wm = new CHslWindowManager();
-    private CHslShaderObject my_shader;
+    private XYShaderObject my_shader;
     private final float opacity = 1.0f;
     private final float z = 0.0f;
     private final int VPT = 4;
@@ -83,13 +85,18 @@ public class CHslRenderEngine {
         glVertexAttribPointer(loc1, 2, GL_FLOAT, false, vertexStride * Float.BYTES, positionStride  * Float.BYTES);
         glEnableVertexAttribArray(0);
 
-        my_shader = new CHslShaderObject();
+        my_shader = new XYShaderObject();
         my_shader.compile_shader();
         my_shader.set_shader_program();
     }
     public void renderBoard() {
-        CHslCamera camera = new CHslCamera();
-        CHslMSBoard board = new CHslMSBoard();
+        CHCamera camera = new CHCamera();
+        CHMSBoard board = new CHMSBoard();
+        XYMouseListener mouse = XYMouseListener.get();
+        XYTextureObject[] rgTextureObject = new XYTextureObject[3];
+        rgTextureObject[0] = new XYTextureObject("assets/images/MysteryBox_2.PNG");
+        rgTextureObject[1] = new XYTextureObject("assets/images/MineBomb_2.PNG");
+        rgTextureObject[2] = new XYTextureObject("assets/images/ShiningDiamond_2.PNG");
         board.fill();
         Vector4f COLOR_FACTOR = new Vector4f(0.8f, 0.0f, 0.2f, opacity);
         initRender();
@@ -100,14 +107,52 @@ public class CHslRenderEngine {
         while (!my_wm.isGlfwWindowClosed()) {
             glfwPollEvents();
             glClear(GL_COLOR_BUFFER_BIT);
+            int NE = 0, MB = 1, GD = 2;
+            rgTextureObject[NE].loadImageToTexture();
             for (int row = 0; row < NUM_POLY_ROWS; row++) {
                 for (int col = 0; col < NUM_POLY_COLS; col++) {
-                    renderTile(row, col);
+                    CHSpot.CELL_STATUS status = board.getCellStatus(row, col);
+                    if(status == CELL_STATUS.NOT_EXPOSED) {
+                        renderTile(row, col);
+                    }
                 }
             }
+            rgTextureObject[GD].loadImageToTexture();
+            for (int row = 0; row < NUM_POLY_ROWS; row++) {
+                for (int col = 0; col < NUM_POLY_COLS; col++) {
+                    CHSpot.CELL_STATUS status = board.getCellStatus(row, col);
+                    CHSpot.CELL_TYPE type = board.getCellType(row, col);
+                    if(status == CELL_STATUS.EXPOSED && type == CELL_TYPE.GOLD) {
+                        renderTile(row, col);
+                    }
+                }
+            }
+            rgTextureObject[MB].loadImageToTexture();
+            for (int row = 0; row < NUM_POLY_ROWS; row++) {
+                for (int col = 0; col < NUM_POLY_COLS; col++) {
+                    CHSpot.CELL_STATUS status = board.getCellStatus(row, col);
+                    CHSpot.CELL_TYPE type = board.getCellType(row, col);
+                    if(status == CELL_STATUS.EXPOSED && type == CELL_TYPE.MINE) {
+                        renderTile(row, col);
+                    }
+                }
+            }
+            XYMouseListener.endFrame();
+            if(XYMouseListener.mouseButtonDown(0)) {
+                float mousex = XYMouseListener.getX();
+                float mousey = XYMouseListener.getY();
+                int row = (int) (mousex - POLY_OFFSET)/(POLYGON_LENGTH + POLY_PADDING);
+                int col = (int) (mousey - POLY_OFFSET)/(POLYGON_LENGTH + POLY_PADDING);
+                if(row >= 0 && col >= 0) {
+                    board.gameStep(row, col);
+                }
+                XYMouseListener.mouseButtonDownReset(0);
+                board.printBoard();
+                board.printCellScores();
+                System.out.println("score: " + board.getCurrentScore());
+            }
             my_wm.swapBuffers();
-            board.printBoard();
-            board.printCellScores();
+
         }
     }
     private int getVAVIndex(int row, int col) {

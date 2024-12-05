@@ -1,6 +1,6 @@
 package pkgDriver;
 
-public class CHslSpot {
+public class CHSpot {
     public static String WINDOW_TITLE = "CSC 133: Click & Kill Time!";
     public static final int POLY_OFFSET = 40, POLYGON_LENGTH = 100, POLY_PADDING = 40;
     public static final int NUM_POLY_ROWS = 9, NUM_POLY_COLS = 7;
