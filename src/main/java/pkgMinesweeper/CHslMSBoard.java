@@ -1,5 +1,8 @@
 package pkgMinesweeper;
 import pkgDriver.CHslSpot;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Collections;
 public class CHslMSBoard {
     private int current_score;
     private Boolean game_active;
@@ -32,6 +35,21 @@ public class CHslMSBoard {
             for (int col = 0; col < COLS; col++) {
                 ms_board[row][col].cell_score = calcScore(row, col);
             }
+        }
+        List<CellData> cells = (List<CellData>) Arrays.asList(ms_board);
+        Collections.shuffle(cells);
+        for (int row = 0; row < ROWS; row++) {
+            for (int col = 0; col < COLS; col++) {
+                ms_board[row][col] = cells.get(row * COLS + col);
+            }
+        }
+        game_active = true;
+    }
+    public void gameStep(int row, int col) {
+        ms_board[row][col].status = CHslSpot.CELL_STATUS.EXPOSED;
+        current_score += ms_board[row][col].cell_score;
+        if(ms_board[row][col].type == CHslSpot.CELL_TYPE.MINE) {
+            game_active = false;
         }
     }
     public int calcScore(int row, int col) {
@@ -83,7 +101,7 @@ public class CHslMSBoard {
     public boolean isGameActive() {
         return game_active;
     }
-    public void printCellScore() {
+    public void printCellScores() {
         for (int row = 0; row < ROWS; row++) {
             for (int col = 0; col < COLS; col++) {
                 System.out.printf("%2d ", ms_board[row][col].cell_score);

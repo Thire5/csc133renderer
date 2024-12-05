@@ -3,6 +3,7 @@ package pkgSlRenderer;
 import org.joml.Vector4f;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.GL;
+import pkgMinesweeper.CHslMSBoard;
 import pkgSlUtils.CHslWindowManager;
 
 import java.io.IOException;
@@ -88,6 +89,8 @@ public class CHslRenderEngine {
     }
     public void renderBoard() {
         CHslCamera camera = new CHslCamera();
+        CHslMSBoard board = new CHslMSBoard();
+        board.fill();
         Vector4f COLOR_FACTOR = new Vector4f(0.8f, 0.0f, 0.2f, opacity);
         initRender();
         glClearColor(0.0f, 0.0f, 0.0f, opacity);
@@ -103,6 +106,8 @@ public class CHslRenderEngine {
                 }
             }
             my_wm.swapBuffers();
+            board.printBoard();
+            board.printCellScores();
         }
     }
     private int getVAVIndex(int row, int col) {

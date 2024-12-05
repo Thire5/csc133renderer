@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e201c54d-30ed-489e-9aec-7cc267dcd7de" name="Changes" comment="added mouse listener, texture object">
+    <list default="true" id="e201c54d-30ed-489e-9aec-7cc267dcd7de" name="Changes" comment="added methods to fill out board">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pkgMinesweeper/CHslMSBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgMinesweeper/CHslMSBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/CHslRenderEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/CHslRenderEngine.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,6 +220,9 @@
       <workItem from="1732346170966" duration="58000" />
       <workItem from="1733269568125" duration="1694000" />
       <workItem from="1733346451331" duration="1018000" />
+      <workItem from="1733372570962" duration="1073000" />
+      <workItem from="1733375034201" duration="29000" />
+      <workItem from="1733429466909" duration="1415000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit pt 2">
       <option name="closed" value="true" />
@@ -595,7 +600,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733347467367</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="added methods to fill out board">
+      <option name="closed" value="true" />
+      <created>1733373632313</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1733373632313</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -630,7 +643,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="further bug fixes, now reproduces video from instructions" />
     <MESSAGE value="added overloads" />
     <MESSAGE value="added fourth overload to specify faces" />
     <MESSAGE value="code cleanup, added renderRandom method" />
@@ -655,6 +667,7 @@
     <MESSAGE value="bug fixes, now functional. Note some classes are currently unused, but may be reimplemented in future builds" />
     <MESSAGE value="added msboard class, some changes to spot file" />
     <MESSAGE value="added mouse listener, texture object" />
-    <option name="LAST_COMMIT_MESSAGE" value="added mouse listener, texture object" />
+    <MESSAGE value="added methods to fill out board" />
+    <option name="LAST_COMMIT_MESSAGE" value="added methods to fill out board" />
   </component>
 </project>
