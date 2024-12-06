@@ -5,21 +5,37 @@ import org.joml.Vector3f;
 
 import static pkgDriver.CHSpot.*;
 
-public class CHCamera {
-    private Vector3f lf = new Vector3f(0f, 0f, 100f);
-    private Vector3f la = new Vector3f(0f, 0f, -1.0f);
-    private Vector3f up = new Vector3f(0f, 1.0f, 0f);
+class CHCamera {
+    private Matrix4f projectionMatrix, viewMatrix;
+    public Vector3f defaultLookFrom;
+    public Vector3f defaultLookAt;
+    public Vector3f defaultUpVector;
 
-    public Matrix4f getProjectionMatrix() {
-        Matrix4f projectionMatrix = new Matrix4f();
+    private final float screen_left = 0.0f, screen_right = (float)WIN_WIDTH,
+            screen_bottom = 0.0f, screen_top = (float)WIN_HEIGHT;
+    private final float zNear = 0.0f, zFar = 100.0f;  // these are NOT pixels!
+
+    public CHCamera() {
+        defaultLookFrom = new Vector3f(0.0f, 0.0f, 100.0f);
+        defaultLookAt = new Vector3f(0.0f, 0.0f, -1.0f);
+        defaultUpVector = new Vector3f(0.0f, 1.0f, 0.0f);
+
+        projectionMatrix = new Matrix4f();
         projectionMatrix.identity();
-        projectionMatrix.ortho(FRUSTUM_LEFT, FRUSTUM_RIGHT, FRUSTUM_BOTTOM, FRUSTUM_TOP, Z_NEAR, Z_FAR);
-        return projectionMatrix;
-    }
-    public Matrix4f getViewMatrix() {
-        Matrix4f viewMatrix = new Matrix4f();
+        projectionMatrix.ortho(screen_left, screen_right,
+                screen_bottom, screen_top, zNear, zFar);
+
+        viewMatrix = new Matrix4f();
         viewMatrix.identity();
-        viewMatrix.lookAt(lf, la.add(lf), up);
+        viewMatrix.lookAt(defaultLookFrom, defaultLookAt.add(defaultLookFrom), defaultUpVector);
+    }  //  public SlCamera(...)
+
+    public Matrix4f getViewMatrix() {
         return viewMatrix;
     }
+
+    public Matrix4f getProjectionMatrix() {
+        return projectionMatrix;
+    }
 }
+

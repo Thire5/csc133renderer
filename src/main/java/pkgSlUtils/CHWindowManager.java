@@ -1,32 +1,20 @@
 package pkgSlUtils;
 
-import org.lwjgl.glfw.GLFWKeyCallback;
 import org.lwjgl.opengl.*;
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static pkgKeyReader.CHslKeyReader.*;
-public class CHslWindowManager {
+public class CHWindowManager {
     private static long my_win = NULL;
-    public static CHslWindowManager window;
-    private GLFWKeyCallback keyCallback = new GLFWKeyCallback() {
-        public void invoke(long window, int key, int scancode, int action, int mods) {
-            if(action == GLFW_PRESS) {
-                keyPressed[key] = true;
-            }
-            else if(action == GLFW_RELEASE) {
-                keyPressed[key] = false;
-            }
-        }
-    };
+    public static CHWindowManager window;
     private static void slWindowCreate(int win_width, int win_height, String title) {
         if(my_win == NULL) {
             my_win = glfwCreateWindow(win_width, win_height, title, NULL, NULL);
         }
     }
-    public static CHslWindowManager get() {
+    public static CHWindowManager get() {
         if(window == null) {
-            window = new CHslWindowManager();
+            window = new CHWindowManager();
         }
         return window;
     }

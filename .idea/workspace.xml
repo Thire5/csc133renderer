@@ -4,15 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e201c54d-30ed-489e-9aec-7cc267dcd7de" name="Changes" comment="shuffled array, added game step method">
+    <list default="true" id="e201c54d-30ed-489e-9aec-7cc267dcd7de" name="Changes" comment="refined render method">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/shaders/fs_texture_1.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/assets/shaders/fs_texture_1.glsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hs_err_pid2244.log" beforeDir="false" afterPath="$PROJECT_DIR$/hs_err_pid2244.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hs_err_pid24740.log" beforeDir="false" afterPath="$PROJECT_DIR$/hs_err_pid24740.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pkgDriver/CHcsc133Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgDriver/CHcsc133Driver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pkgDriver/CHslSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgDriver/CHSpot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pkgMinesweeper/CHslMSBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgMinesweeper/CHMSBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pkgPingPongArray/CHslPingPongArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgPingPongArray/CHPingPongArray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pkgSlPolygonRenderer/CHslPolygonRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgSlPolygonRenderer/CHslPolygonRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/CHslCamera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/CHCamera.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/CHslRenderEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/CHRenderEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/CHCamera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/CHCamera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/CHRenderEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/CHRenderEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/XYShaderObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/XYShaderObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/XYTextureObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/XYTextureObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pkgSlUtils/CHslWindowManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgSlUtils/CHWindowManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -229,15 +231,8 @@
       <workItem from="1733372570962" duration="1073000" />
       <workItem from="1733375034201" duration="29000" />
       <workItem from="1733429466909" duration="1494000" />
-      <workItem from="1733432125462" duration="5662000" />
-    </task>
-    <task id="LOCAL-00001" summary="initial commit pt 2">
-      <option name="closed" value="true" />
-      <created>1727813736005</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1727813736005</updated>
+      <workItem from="1733432125462" duration="8609000" />
+      <workItem from="1733442498101" duration="10812000" />
     </task>
     <task id="LOCAL-00002" summary="initial commit">
       <option name="closed" value="true" />
@@ -623,7 +618,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733430923638</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="refined render method">
+      <option name="closed" value="true" />
+      <created>1733438457501</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1733438457501</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -658,7 +661,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added fourth overload to specify faces" />
     <MESSAGE value="code cleanup, added renderRandom method" />
     <MESSAGE value="bug fixes, code cleanup" />
     <MESSAGE value="minor tidying, final version" />
@@ -683,6 +685,7 @@
     <MESSAGE value="added mouse listener, texture object" />
     <MESSAGE value="added methods to fill out board" />
     <MESSAGE value="shuffled array, added game step method" />
-    <option name="LAST_COMMIT_MESSAGE" value="shuffled array, added game step method" />
+    <MESSAGE value="refined render method" />
+    <option name="LAST_COMMIT_MESSAGE" value="refined render method" />
   </component>
 </project>

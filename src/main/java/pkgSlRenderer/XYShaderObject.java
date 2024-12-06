@@ -28,6 +28,13 @@ public class XYShaderObject {
         my_vec4.get(vec4Buffer);
         glUniform4fv(var_location, vec4Buffer);
     } // public void loadVec4f(...)
+    public void loadInt(String strIntName, int value) {
+        // Get the location of the uniform variable by name
+        int var_location = glGetUniformLocation(shaderProgram, strIntName);
+
+        // Set the value of the uniform variable in the shader
+        glUniform1i(var_location, value);
+    }
     public void compile_shader() {
         shaderProgram = glCreateProgram();
 
@@ -57,6 +64,20 @@ public class XYShaderObject {
             return new String(Files.readAllBytes(Paths.get(filePath)));
         } catch (IOException e) {
             throw new RuntimeException("Error loading shader file: " + filePath, e);
+        }
+    }
+    public void checkShaderCompile(int shaderID) {
+        if (glGetShaderi(shaderID, GL_COMPILE_STATUS) == GL_FALSE) {
+            System.out.println("Shader compile failed!");
+            System.out.println(glGetShaderInfoLog(shaderID));
+            System.out.println(glGetShaderInfoLog(shaderID, 1024));
+        }
+    }
+
+    public void checkProgramLink(int programID) {
+        if (glGetProgrami(programID, GL_LINK_STATUS) == GL_FALSE) {
+            System.out.println("Program linking failed!");
+            System.out.println(glGetProgramInfoLog(programID));
         }
     }
 }

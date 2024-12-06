@@ -34,7 +34,7 @@ C  [lwjgl_opengl.dll+0xc59a]  (no source info available)
 Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
 j  org.lwjgl.opengl.GL11C.glClear(I)V+0
 j  org.lwjgl.opengl.GL11.glClear(I)V+1
-j  pkgSlUtils.CHslWindowManager.initGLFWWindow(IILjava/lang/String;)V+87
+j  pkgSlUtils.CHWindowManager.initGLFWWindow(IILjava/lang/String;)V+87
 j  pkgDriver.csc133Driver.main([Ljava/lang/String;)V+19
 v  ~StubRoutines::call_stub 0x000001d1d8c7100d
 
