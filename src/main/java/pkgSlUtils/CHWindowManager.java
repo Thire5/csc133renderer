@@ -1,6 +1,8 @@
 package pkgSlUtils;
 
 import org.lwjgl.opengl.*;
+import pkgMouseReader.XYMouseListener;
+
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -46,6 +48,8 @@ public class CHWindowManager {
         glfwWindowHint(GLFW_MAXIMIZED, GLFW_FALSE);
         float CC_RED = 0.0f, CC_GREEN = 0.0f, CC_BLUE = 1.0f, CC_ALPHA = 1.0f;
         glClearColor(CC_RED, CC_GREEN, CC_BLUE, CC_ALPHA);
-
+        glfwSetCursorPosCallback(my_win, (window, xpos, ypos) -> XYMouseListener.mousePosCallback(window, xpos, ypos));
+        glfwSetMouseButtonCallback(my_win, (window, button, action, mods) -> XYMouseListener.mouseButtonCallback(window, button, action, mods));
+        glfwSetScrollCallback(my_win, (window, xoffset, yoffset) -> XYMouseListener.mouseScrollCallback(window, xoffset, yoffset));
     }
 }  // public class Main

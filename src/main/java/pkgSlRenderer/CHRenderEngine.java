@@ -2,6 +2,7 @@ package pkgSlRenderer;
 
 import org.joml.Vector4f;
 import org.lwjgl.BufferUtils;
+import org.lwjgl.glfw.GLFW;
 import org.lwjgl.opengl.GL;
 import pkgDriver.CHSpot;
 import pkgMinesweeper.CHMSBoard;
@@ -37,6 +38,7 @@ public class CHRenderEngine {
     private final float uMax = 1.0f;
     private FloatBuffer myFB;
     private float[] my_v = new float[NUM_POLY_ROWS*NUM_POLY_COLS*FPP*VPT];
+
     private void fillVertexArray() {
         int index = 0;
         for (int row = 0; row < NUM_POLY_ROWS; row++) {
@@ -115,7 +117,7 @@ public class CHRenderEngine {
                 for (int col = 0; col < NUM_POLY_COLS; col++) {
                     CHSpot.CELL_STATUS status = board.getCellStatus(row, col);
                     if(status == CELL_STATUS.NOT_EXPOSED) {
-                        COLOR_FACTOR = new Vector4f(1.0f, 0.0f, 1.0f, opacity);
+                        COLOR_FACTOR = new Vector4f(0.0f, 0.0f, 1.0f, opacity);
                         my_shader.loadVector4f("COLOR_FACTOR", COLOR_FACTOR);
                         renderTile(row, col);
                     }
@@ -127,7 +129,7 @@ public class CHRenderEngine {
                     CHSpot.CELL_STATUS status = board.getCellStatus(row, col);
                     CHSpot.CELL_TYPE type = board.getCellType(row, col);
                     if(status == CELL_STATUS.EXPOSED && type == CELL_TYPE.GOLD) {
-                        COLOR_FACTOR = new Vector4f(1.0f, 0.0f, 0.0f, opacity);
+                        COLOR_FACTOR = new Vector4f(0.0f, 1.0f, 0.0f, opacity);
                         my_shader.loadVector4f("COLOR_FACTOR", COLOR_FACTOR);
                         renderTile(row, col);
                     }
@@ -139,24 +141,27 @@ public class CHRenderEngine {
                     CHSpot.CELL_STATUS status = board.getCellStatus(row, col);
                     CHSpot.CELL_TYPE type = board.getCellType(row, col);
                     if(status == CELL_STATUS.EXPOSED && type == CELL_TYPE.MINE) {
-                        COLOR_FACTOR = new Vector4f(0.0f, 1.0f, 0.0f, opacity);
+                        COLOR_FACTOR = new Vector4f(1.0f, 0.0f, 0.0f, opacity);
                         my_shader.loadVector4f("COLOR_FACTOR", COLOR_FACTOR);
                         renderTile(row, col);
                     }
                 }
             }
             if(XYMouseListener.mouseButtonDown(0)) {
-                float mouseX = XYMouseListener.getX();
-                float mouseY = XYMouseListener.getY();
-                int row = (int) (mouseX - POLY_OFFSET)/(POLYGON_LENGTH + POLY_PADDING);
-                int col = (int) (mouseY - POLY_OFFSET)/(POLYGON_LENGTH + POLY_PADDING);
+                float mouseX = (int) XYMouseListener.getX();
+                float mouseY = (int) XYMouseListener.getY();
+                int row = (int) (WIN_HEIGHT - POLY_OFFSET - mouseY)/(POLYGON_LENGTH + POLY_PADDING);
+                int col = (int) (mouseX - POLY_OFFSET)/(POLYGON_LENGTH + POLY_PADDING);
                 if(row >= 0 && col >= 0) {
                     board.gameStep(row, col);
                 }
                 XYMouseListener.mouseButtonDownReset(0);
-                board.printBoard();
-                board.printCellScores();
-                System.out.println("score: " + board.getCurrentScore());
+                if(board.isGameActive()) {
+                    board.printBoard();
+                    board.printCellScores();
+                    System.out.println("mouse click at " + row + ", " + col);
+                    System.out.println("score: " + board.getCurrentScore());
+                }
             }
             my_wm.swapBuffers();
         }
@@ -174,8 +179,6 @@ public class CHRenderEngine {
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, eboID);
         glBufferData(GL_ELEMENT_ARRAY_BUFFER, VertexIndicesBuffer, GL_STATIC_DRAW);
         glDrawElements(GL_TRIANGLES, rgVertexIndices.length, GL_UNSIGNED_INT, 0);
-        /*COLOR_FACTOR = new Vector4f(1.0f, 0.0f, 1.0f, opacity);*/
-        /*COLOR_FACTOR = new Vector4f(1.0f, 0.0f, 1.0f, opacity);*/
     }
     public void initOpenGL(CHWindowManager window) throws IOException {
         my_wm = window;

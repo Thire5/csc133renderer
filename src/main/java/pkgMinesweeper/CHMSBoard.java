@@ -57,10 +57,18 @@ public class CHMSBoard {
         game_active = true;
     }
     public void gameStep(int row, int col) {
-        ms_board[row][col].status = CHSpot.CELL_STATUS.EXPOSED;
-        current_score += ms_board[row][col].cell_score;
-        if(ms_board[row][col].type == CHSpot.CELL_TYPE.MINE) {
-            game_active = false;
+        if (game_active) {
+            ms_board[row][col].status = CHSpot.CELL_STATUS.EXPOSED;
+            current_score += ms_board[row][col].cell_score;
+            if (ms_board[row][col].type == CHSpot.CELL_TYPE.MINE) {
+                game_active = false;
+                for (int ro = 0; ro < ROWS; ro++) {
+                    for (int co = 0; co < COLS; co++) {
+                        ms_board[ro][co].status = CHSpot.CELL_STATUS.EXPOSED;
+                    }
+                }
+                System.out.println("Better luck next time!");
+            }
         }
     }
     public int calcScore(int row, int col) {
@@ -102,9 +110,9 @@ public class CHMSBoard {
         return score;
     }
     public void printBoard() {
-        for (int row = 0; row < ROWS; row++) {
+        for (int row = ROWS - 1; row >= 0; row--) {
             for (int col = 0; col < COLS; col++) {
-                System.out.printf(ms_board[row][col].type + " ");
+                System.out.print(ms_board[row][col].type + " ");
             }
             System.out.println();
         }
@@ -113,7 +121,7 @@ public class CHMSBoard {
         return game_active;
     }
     public void printCellScores() {
-        for (int row = 0; row < ROWS; row++) {
+        for (int row = ROWS - 1; row >= 0; row--) {
             for (int col = 0; col < COLS; col++) {
                 System.out.printf("%2d ", ms_board[row][col].cell_score);
             }
