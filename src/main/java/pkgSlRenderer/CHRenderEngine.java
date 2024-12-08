@@ -38,7 +38,7 @@ public class CHRenderEngine {
     private final float uMax = 1.0f;
     private FloatBuffer myFB;
     private float[] my_v = new float[NUM_POLY_ROWS*NUM_POLY_COLS*FPP*VPT];
-
+    /* this method is still bugged, texture vertices do not align with corners*/
     private void fillVertexArray() {
         int index = 0;
         for (int row = 0; row < NUM_POLY_ROWS; row++) {
