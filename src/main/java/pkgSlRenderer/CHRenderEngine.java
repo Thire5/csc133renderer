@@ -50,7 +50,7 @@ public class CHRenderEngine {
                 my_v[index++] = y;
                 my_v[index++] = z;
                 my_v[index++] = uMin;
-                my_v[index++] = uMax;
+                my_v[index++] = uMin;
 
                 my_v[index++] = x;
                 my_v[index++] = y + POLYGON_LENGTH;
@@ -61,14 +61,14 @@ public class CHRenderEngine {
                 my_v[index++] = x + POLYGON_LENGTH;
                 my_v[index++] = y + POLYGON_LENGTH;
                 my_v[index++] = z;
-                my_v[index++] = uMin;
+                my_v[index++] = uMax;
                 my_v[index++] = uMax;
 
                 my_v[index++] = x + POLYGON_LENGTH;
                 my_v[index++] = y;
                 my_v[index++] = z;
-                my_v[index++] = uMin;
                 my_v[index++] = uMax;
+                my_v[index++] = uMin;
             }
         }
         myFB = BufferUtils.createFloatBuffer(my_v.length);
@@ -95,7 +95,7 @@ public class CHRenderEngine {
         CHCamera camera = new CHCamera();
         CHMSBoard board = new CHMSBoard();
         XYTextureObject[] rgTextureObject = new XYTextureObject[3];
-        rgTextureObject[0] = new XYTextureObject("assets/images/MysteryBox_2.PNG");
+        rgTextureObject[0] = new XYTextureObject("assets/images/base.PNG");
         rgTextureObject[1] = new XYTextureObject("assets/images/MineBomb_2.PNG");
         rgTextureObject[2] = new XYTextureObject("assets/images/ShiningDiamond_2.PNG");
         board.fill();

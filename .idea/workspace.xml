@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e201c54d-30ed-489e-9aec-7cc267dcd7de" name="Changes" comment="bug fixes, unsuccessful">
+    <list default="true" id="e201c54d-30ed-489e-9aec-7cc267dcd7de" name="Changes" comment="bug fixes for mouse detection, game now properly stops after loss">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pkgDriver/CHSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgDriver/CHSpot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pkgMinesweeper/CHMSBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgMinesweeper/CHMSBoard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/CHRenderEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgSlRenderer/CHRenderEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pkgSlUtils/CHWindowManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgSlUtils/CHWindowManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -229,15 +226,8 @@
       <workItem from="1733432125462" duration="8609000" />
       <workItem from="1733442498101" duration="10862000" />
       <workItem from="1733524987995" duration="1145000" />
-      <workItem from="1733605955663" duration="3292000" />
-    </task>
-    <task id="LOCAL-00003" summary="implementing get method">
-      <option name="closed" value="true" />
-      <created>1727818219926</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1727818219926</updated>
+      <workItem from="1733605955663" duration="3354000" />
+      <workItem from="1733633280308" duration="2912000" />
     </task>
     <task id="LOCAL-00004" summary="added makeContextCurrent, new variables">
       <option name="closed" value="true" />
@@ -623,7 +613,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733456415068</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="bug fixes for mouse detection, game now properly stops after loss">
+      <option name="closed" value="true" />
+      <created>1733609768871</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1733609768871</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -658,7 +656,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="bug fixes, code cleanup" />
     <MESSAGE value="minor tidying, final version" />
     <MESSAGE value="merged ping pong code" />
     <MESSAGE value="added initial game of life methods" />
@@ -683,6 +680,7 @@
     <MESSAGE value="shuffled array, added game step method" />
     <MESSAGE value="refined render method" />
     <MESSAGE value="bug fixes, unsuccessful" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug fixes, unsuccessful" />
+    <MESSAGE value="bug fixes for mouse detection, game now properly stops after loss" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug fixes for mouse detection, game now properly stops after loss" />
   </component>
 </project>
